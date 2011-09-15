@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Reincarnation</title>
+  <title>Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX - Reincarnation</title>
   <meta name="author" content="Rainux Luo">
   
 
@@ -16,7 +16,7 @@
 
   
 
-  <link rel="canonical" href="http://rainux.github.com/index.html"/>
+  <link rel="canonical" href="http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
   <link href="/favicon.png" rel="shortcut icon" />
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -56,15 +56,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
-
-
-
-  <article>
-    
+      <div>
+<article class="hentry">
+  
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/">Configure Capybara-webkit to Run Acceptance Specs With Javascript/AJAX</a></h1>
+      <h1 class="entry-title">Configure Capybara-webkit to Run Acceptance Specs With Javascript/AJAX</h1>
     
     
       <p class="meta">
@@ -82,7 +79,7 @@
   </header>
 
 
-  <div class="entry-content"><ul>
+<div class="entry-content"><ul>
 <li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&#8217;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
 </ul>
 
@@ -170,21 +167,16 @@
 </div><div class='line'><span class="k">end</span>
 </div></code></pre></td></tr></table></div></figure>
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  
 
+<span class="byline author vcard">Posted by <span class="fn">Rainux Luo</span></span>
 
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/">推荐一些 Ruby on Rails 学习资料</a></h1>
-    
-    
-      <p class="meta">
+      
 
 
 
@@ -194,58 +186,51 @@
 
 
 
-<time datetime="2011-01-12T02:04:00+08:00" pubdate  data-updated="true" >Jan 12<span>th</span>, 2011</time></p>
+<time datetime="2011-07-23T20:09:00+08:00" pubdate  data-updated="true" >Jul 23<span>rd</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/capybara/'>Capybara</a>, <a class='category' href='/blog/categories/rspec/'>RSpec</a>, <a class='category' href='/blog/categories/rails/'>Rails</a>, <a class='category' href='/blog/categories/ruby/'>Ruby</a>, <a class='category' href='/blog/categories/capybara-webkit/'>capybara-webkit</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h2>Ruby</h2>
-
-<p>开始之前应该看看 <a href="http://www.ruby-lang.org/">Ruby 官方网站</a> 上的 <a href="http://www.ruby-lang.org/en/about/">About Ruby</a>、<a href="http://www.ruby-lang.org/en/documentation/quickstart/">Ruby in Twenty Minutes</a> 和 <a href="http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby From Other Languages</a> 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。</p>
-
-<p>经验比较丰富的开发者可以通过 <a href="http://www.rubyist.net/~slagell/ruby/">Ruby User&#8217;s Guide</a> [注1] 快速入门 Ruby，之后应该准备一本 <a href="http://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a> 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 <a href="http://ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby</a> 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，<a href="http://www.china-pub.com/195252">Ruby Programming: 向Ruby之父学程序设计</a> 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。</p>
-
-<h2>Rails</h2>
-
-<p>同样，有经验的开发者可以直接通过 <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> 入门 Rails。而 <a href="http://pragprog.com/titles/rails4/agile-web-development-with-rails">Agile Web Development with Rails</a> 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。</p>
-
-<h2>中文资料</h2>
-
-<p><a href="http://twitter.com/ihower">@ihower</a> 组织的 <a href="http://ruby.tw">Ruby Taiwan</a> 社区有提供 <a href="http://guides.ruby.tw/ruby/">Ruby User&#8217;s Guide</a> 的繁体中文翻译以及 <a href="http://guides.ruby.tw/rails3/">Ruby on Rails Guides</a> 前两章的繁体中文翻译。<a href="http://twitter.com/ihower">@ihower</a> 自己编写的 <a href="http://ihower.tw/rails3/">Ruby on Rails 實戰手冊</a> 也是一部很不错的面向有一定经验开发者的在线书籍。</p>
-
-<h2>其它</h2>
-
-<p>Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 <a href="https://github.com/chneukirchen/styleguide/blob/master/RUBY-STYLE">Ruby Coding Style Guide</a>。</p>
-
-<p>真正开始使用 Ruby on Rails 之后，<a href="http://www.railsapi.com/">Rails Searchable API Doc</a> 和 <a href="http://rdoc.info/">RubyDoc.info</a> 一定会是最常用的两个在线文档服务。</p>
-
-<p>注1: Ruby User&#8217;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.8.7。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 <a href="https://github.com/janlelis/irbtools">irbtools</a> 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/" data-via="" data-counturl="http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
 </div>
-  
-  
 
-
-  </article>
-
-<nav role="pagination">
-  <div>
     
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</nav>
+  </footer>
+</article>
 
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread"><div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'rainux-reincarnation';
-    (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
+  var disqus_shortname = 'rainux-reincarnation';
+  var disqus_identifier = 'http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/';
+  var disqus_url = 'http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/';
+  //var disqus_developer = 1;
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
+
 <aside role=sidebar>
   
     <section>
@@ -266,7 +251,7 @@
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/rainux">@rainux</a> on Github
@@ -298,6 +283,7 @@
 
   
 </aside>
+
 
     </div>
   </div>

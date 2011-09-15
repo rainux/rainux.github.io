@@ -4,12 +4,136 @@
   <title>Reincarnation</title>
   <link href="http://rainux.github.com/atom.xml" rel="self"/>
   <link href="http://rainux.github.com/"/>
-  <updated>2011-09-16T05:03:40+08:00</updated>
+  <updated>2011-09-16T06:20:25+08:00</updated>
   <id>http://rainux.github.com/</id>
   <author>
     <name>Rainux Luo</name>
     
   </author>
 
+  
+  <entry>
+    <title>Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</title>
+    <link href="http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
+    <updated>2011-07-23T20:09:00+08:00</updated>
+    <id>http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;Add &lt;code&gt;capybara-webkit&lt;/code&gt; to your &lt;code&gt;Gemfile&lt;/code&gt; and let &lt;a href=&quot;https://github.com/guard/guard-bundler&quot;&gt;Guard::Bundler&lt;/a&gt; install it automatically (or manually via &lt;code&gt;bundle install&lt;/code&gt; if you don&amp;#8217;t use &lt;a href=&quot;https://github.com/guard/guard&quot;&gt;Guard&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;Gemfile&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capybara-webkit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 1.0.0.beta4&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Set Javascript driver to &lt;code&gt;:webkit&lt;/code&gt; for Capybara in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;spec_helper.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;no&quot;&gt;Capybara&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;javascript_driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:webkit&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Configure RSpec use non-transactional fixtures, configure &lt;a href=&quot;https://github.com/bmabey/database_cleaner&quot;&gt;Database Cleaner&lt;/a&gt; in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Notice with this setup, we&amp;#8217;ll only use truncation strategy when driver is not &lt;code&gt;:rack_test&lt;/code&gt;. this will make normal specs run faster.&lt;/p&gt;
+
+&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;spec_helper.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;10&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;11&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;12&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;13&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;14&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;use_transactional_fixtures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Capybara&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:rack_test&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strategy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:transaction&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strategy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:truncation&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clean&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Tag your scenarios in &lt;code&gt;spec/acceptance/*_spec.rb&lt;/code&gt; to use Javascript driver if necessary.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;some_spec.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;scenario&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Create a lolita via AJAX&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:js&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For example if you have a simple AJAX form, the &lt;code&gt;success&lt;/code&gt; callback will simply redirect browser to another page via &lt;code&gt;location.href = &#8216;/yet_another_page&#8217;;&lt;/code&gt;. You can use the following code to wait for it done.&lt;/p&gt;
+
+&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;another_spec.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
+&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;scenario&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Create a lolita via AJAX&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:js&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;visit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_lolita_path&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;click_on&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Submit&amp;#39;&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;wait_until&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lolita_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Lolita&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;c1&quot;&gt;# Your expections for the new page&lt;/span&gt;
+&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+</content>
+  </entry>
+  
+  <entry>
+    <title>推荐一些 Ruby on Rails 学习资料</title>
+    <link href="http://rainux.github.com/blog/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/"/>
+    <updated>2011-01-12T02:04:00+08:00</updated>
+    <id>http://rainux.github.com/blog/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning</id>
+    <content type="html">&lt;h2&gt;Ruby&lt;/h2&gt;
+
+&lt;p&gt;开始之前应该看看 &lt;a href=&quot;http://www.ruby-lang.org/&quot;&gt;Ruby 官方网站&lt;/a&gt; 上的 &lt;a href=&quot;http://www.ruby-lang.org/en/about/&quot;&gt;About Ruby&lt;/a&gt;、&lt;a href=&quot;http://www.ruby-lang.org/en/documentation/quickstart/&quot;&gt;Ruby in Twenty Minutes&lt;/a&gt; 和 &lt;a href=&quot;http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/&quot;&gt;Ruby From Other Languages&lt;/a&gt; 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。&lt;/p&gt;
+
+&lt;p&gt;经验比较丰富的开发者可以通过 &lt;a href=&quot;http://www.rubyist.net/~slagell/ruby/&quot;&gt;Ruby User&amp;#8217;s Guide&lt;/a&gt; [注1] 快速入门 Ruby，之后应该准备一本 &lt;a href=&quot;http://books.google.com/books?id=jcUbTcr5XWwC&quot;&gt;The Ruby Programming Language&lt;/a&gt; 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 &lt;a href=&quot;http://ruby-doc.org/docs/ProgrammingRuby/&quot;&gt;Programming Ruby&lt;/a&gt; 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，&lt;a href=&quot;http://www.china-pub.com/195252&quot;&gt;Ruby Programming: 向Ruby之父学程序设计&lt;/a&gt; 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。&lt;/p&gt;
+
+&lt;h2&gt;Rails&lt;/h2&gt;
+
+&lt;p&gt;同样，有经验的开发者可以直接通过 &lt;a href=&quot;http://guides.rubyonrails.org/&quot;&gt;Ruby on Rails Guides&lt;/a&gt; 入门 Rails。而 &lt;a href=&quot;http://pragprog.com/titles/rails4/agile-web-development-with-rails&quot;&gt;Agile Web Development with Rails&lt;/a&gt; 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。&lt;/p&gt;
+
+&lt;h2&gt;中文资料&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://twitter.com/ihower&quot;&gt;@ihower&lt;/a&gt; 组织的 &lt;a href=&quot;http://ruby.tw&quot;&gt;Ruby Taiwan&lt;/a&gt; 社区有提供 &lt;a href=&quot;http://guides.ruby.tw/ruby/&quot;&gt;Ruby User&amp;#8217;s Guide&lt;/a&gt; 的繁体中文翻译以及 &lt;a href=&quot;http://guides.ruby.tw/rails3/&quot;&gt;Ruby on Rails Guides&lt;/a&gt; 前两章的繁体中文翻译。&lt;a href=&quot;http://twitter.com/ihower&quot;&gt;@ihower&lt;/a&gt; 自己编写的 &lt;a href=&quot;http://ihower.tw/rails3/&quot;&gt;Ruby on Rails 實戰手冊&lt;/a&gt; 也是一部很不错的面向有一定经验开发者的在线书籍。&lt;/p&gt;
+
+&lt;h2&gt;其它&lt;/h2&gt;
+
+&lt;p&gt;Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 &lt;a href=&quot;https://github.com/chneukirchen/styleguide/blob/master/RUBY-STYLE&quot;&gt;Ruby Coding Style Guide&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;真正开始使用 Ruby on Rails 之后，&lt;a href=&quot;http://www.railsapi.com/&quot;&gt;Rails Searchable API Doc&lt;/a&gt; 和 &lt;a href=&quot;http://rdoc.info/&quot;&gt;RubyDoc.info&lt;/a&gt; 一定会是最常用的两个在线文档服务。&lt;/p&gt;
+
+&lt;p&gt;注1: Ruby User&amp;#8217;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.8.7。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 &lt;a href=&quot;https://github.com/janlelis/irbtools&quot;&gt;irbtools&lt;/a&gt; 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。&lt;/p&gt;
+</content>
+  </entry>
   
 </feed>
