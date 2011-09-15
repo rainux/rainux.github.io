@@ -4,7 +4,7 @@
   <title>Reincarnation</title>
   <link href="http://rainux.github.com/atom.xml" rel="self"/>
   <link href="http://rainux.github.com/"/>
-  <updated>2011-09-16T06:20:25+08:00</updated>
+  <updated>2011-09-16T06:24:43+08:00</updated>
   <id>http://rainux.github.com/</id>
   <author>
     <name>Rainux Luo</name>
@@ -128,7 +128,7 @@
 
 &lt;h2&gt;其它&lt;/h2&gt;
 
-&lt;p&gt;Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 &lt;a href=&quot;https://github.com/chneukirchen/styleguide/blob/master/RUBY-STYLE&quot;&gt;Ruby Coding Style Guide&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 &lt;a href=&quot;https://github.com/bbatsov/ruby-style-guide&quot;&gt;Ruby Style Guide&lt;/a&gt;。&lt;/p&gt;
 
 &lt;p&gt;真正开始使用 Ruby on Rails 之后，&lt;a href=&quot;http://www.railsapi.com/&quot;&gt;Rails Searchable API Doc&lt;/a&gt; 和 &lt;a href=&quot;http://rdoc.info/&quot;&gt;RubyDoc.info&lt;/a&gt; 一定会是最常用的两个在线文档服务。&lt;/p&gt;
 
