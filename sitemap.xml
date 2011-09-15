@@ -2,26 +2,26 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>
-            http://rainux.github.com/blog/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/
+            http://rainux.github.com/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/
         </loc>
-        <lastmod>2011-09-16T06:24:42+08:00</lastmod>
+        <lastmod>2011-09-16T07:43:25+08:00</lastmod>
     </url>
     <url>
-        <loc>http://rainux.github.com/blog/2011/02/03/google-pinyin-ime-for-android-mod-v3/</loc>
-        <lastmod>2011-09-16T06:46:08+08:00</lastmod>
+        <loc>http://rainux.github.com/2011/02/03/google-pinyin-ime-for-android-mod-v3/</loc>
+        <lastmod>2011-09-16T07:43:25+08:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/
+            http://rainux.github.com/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/
         </loc>
-        <lastmod>2011-09-16T06:20:24+08:00</lastmod>
+        <lastmod>2011-09-16T07:43:25+08:00</lastmod>
     </url>
     <url>
-        <loc>http://rainux.github.com/blog/archives/</loc>
-        <lastmod>2011-09-16T06:46:08+08:00</lastmod>
+        <loc>http://rainux.github.com/archives/</loc>
+        <lastmod>2011-09-16T07:43:25+08:00</lastmod>
     </url>
     <url>
         <loc>http://rainux.github.com/</loc>
-        <lastmod>2011-09-16T06:46:08+08:00</lastmod>
+        <lastmod>2011-09-16T07:43:25+08:00</lastmod>
     </url>
 </urlset>

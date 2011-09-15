@@ -4,7 +4,7 @@
   <title>Reincarnation</title>
   <link href="http://rainux.github.com/atom.xml" rel="self"/>
   <link href="http://rainux.github.com/"/>
-  <updated>2011-09-16T06:46:08+08:00</updated>
+  <updated>2011-09-16T07:45:16+08:00</updated>
   <id>http://rainux.github.com/</id>
   <author>
     <name>Rainux Luo</name>
@@ -14,30 +14,35 @@
   
   <entry>
     <title>Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</title>
-    <link href="http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
+    <link href="http://rainux.github.com/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
     <updated>2011-07-23T20:09:00+08:00</updated>
-    <id>http://rainux.github.com/blog/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
+    <id>http://rainux.github.com/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
     <content type="html">&lt;ul&gt;
 &lt;li&gt;Add &lt;code&gt;capybara-webkit&lt;/code&gt; to your &lt;code&gt;Gemfile&lt;/code&gt; and let &lt;a href=&quot;https://github.com/guard/guard-bundler&quot;&gt;Guard::Bundler&lt;/a&gt; install it automatically (or manually via &lt;code&gt;bundle install&lt;/code&gt; if you don&amp;#8217;t use &lt;a href=&quot;https://github.com/guard/guard&quot;&gt;Guard&lt;/a&gt;).&lt;/li&gt;
 &lt;/ul&gt;
+
 
 &lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;Gemfile&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capybara-webkit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 1.0.0.beta4&amp;#39;&lt;/span&gt;
 &lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
 
+
 &lt;ul&gt;
 &lt;li&gt;Set Javascript driver to &lt;code&gt;:webkit&lt;/code&gt; for Capybara in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
+
 
 &lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;spec_helper.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;no&quot;&gt;Capybara&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;javascript_driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:webkit&lt;/span&gt;
 &lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
 
+
 &lt;ul&gt;
-&lt;li&gt;Configure RSpec use non-transactional fixtures, configure &lt;a href=&quot;https://github.com/bmabey/database_cleaner&quot;&gt;Database Cleaner&lt;/a&gt; in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Configure RSpec use non-transactional fixtures, configure &lt;a href=&quot;https://github.com/bmabey/database_cleaner&quot;&gt;Database Cleaner&lt;/a&gt; in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Notice with this setup, we&amp;#8217;ll only use truncation strategy when driver is not &lt;code&gt;:rack_test&lt;/code&gt;. this will make normal specs run faster.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Notice with this setup, we&amp;#8217;ll only use truncation strategy when driver is not &lt;code&gt;:rack_test&lt;/code&gt;. this will make normal specs run faster.&lt;/p&gt;
 
 &lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;spec_helper.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
@@ -69,9 +74,11 @@
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
 
+
 &lt;ul&gt;
 &lt;li&gt;Tag your scenarios in &lt;code&gt;spec/acceptance/*_spec.rb&lt;/code&gt; to use Javascript driver if necessary.&lt;/li&gt;
 &lt;/ul&gt;
+
 
 &lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;some_spec.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
@@ -79,11 +86,13 @@
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
 
+
 &lt;ul&gt;
-&lt;li&gt;Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.&lt;/p&gt;
+
+&lt;p&gt;For example if you have a simple AJAX form, the &lt;code&gt;success&lt;/code&gt; callback will simply redirect browser to another page via &lt;code&gt;location.href = &#8216;/yet_another_page&#8217;;&lt;/code&gt;. You can use the following code to wait for it done.&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;For example if you have a simple AJAX form, the &lt;code&gt;success&lt;/code&gt; callback will simply redirect browser to another page via &lt;code&gt;location.href = &#8216;/yet_another_page&#8217;;&lt;/code&gt;. You can use the following code to wait for it done.&lt;/p&gt;
 
 &lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;another_spec.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
 &lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
@@ -104,14 +113,15 @@
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;c1&quot;&gt;# Your expections for the new page&lt;/span&gt;
 &lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+
 </content>
   </entry>
   
   <entry>
     <title>Google 拼音输入法 Android 版 MOD v3</title>
-    <link href="http://rainux.github.com/blog/2011/02/03/google-pinyin-ime-for-android-mod-v3/"/>
+    <link href="http://rainux.github.com/2011/02/03/google-pinyin-ime-for-android-mod-v3/"/>
     <updated>2011-02-03T14:44:00+08:00</updated>
-    <id>http://rainux.github.com/blog/2011/02/03/google-pinyin-ime-for-android-mod-v3</id>
+    <id>http://rainux.github.com/2011/02/03/google-pinyin-ime-for-android-mod-v3</id>
     <content type="html">&lt;p&gt;前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。&lt;/p&gt;
 
 &lt;p&gt;懒得另外写说明了，直接引用 &lt;a href=&quot;https://github.com/rainux/com.google.android.inputmethod.pinyin&quot;&gt;GitHub repo&lt;/a&gt; 里的 README 吧。&lt;/p&gt;
@@ -132,6 +142,7 @@
 &lt;li&gt;中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）&lt;/li&gt;
 &lt;/ul&gt;
 
+
 &lt;h2&gt;细节改进&lt;/h2&gt;
 
 &lt;ul&gt;
@@ -140,6 +151,7 @@
 &lt;li&gt;中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）&lt;/li&gt;
 &lt;li&gt;中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。&lt;/li&gt;
 &lt;/ul&gt;
+
 
 &lt;h2&gt;如何使用&lt;/h2&gt;
 
@@ -152,14 +164,15 @@
 &lt;ul&gt;
 &lt;li&gt;@&lt;a href=&quot;http://twitter.com/pipitu&quot;&gt;pipitu&lt;/a&gt;: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。&lt;/li&gt;
 &lt;/ul&gt;
+
 </content>
   </entry>
   
   <entry>
     <title>推荐一些 Ruby on Rails 学习资料</title>
-    <link href="http://rainux.github.com/blog/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/"/>
+    <link href="http://rainux.github.com/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/"/>
     <updated>2011-01-12T02:04:00+08:00</updated>
-    <id>http://rainux.github.com/blog/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning</id>
+    <id>http://rainux.github.com/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning</id>
     <content type="html">&lt;h2&gt;Ruby&lt;/h2&gt;
 
 &lt;p&gt;开始之前应该看看 &lt;a href=&quot;http://www.ruby-lang.org/&quot;&gt;Ruby 官方网站&lt;/a&gt; 上的 &lt;a href=&quot;http://www.ruby-lang.org/en/about/&quot;&gt;About Ruby&lt;/a&gt;、&lt;a href=&quot;http://www.ruby-lang.org/en/documentation/quickstart/&quot;&gt;Ruby in Twenty Minutes&lt;/a&gt; 和 &lt;a href=&quot;http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/&quot;&gt;Ruby From Other Languages&lt;/a&gt; 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。&lt;/p&gt;
