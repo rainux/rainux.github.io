@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Reincarnation</title>
+  <title>Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8 - Reincarnation</title>
   <meta name="author" content="Rainux Luo">
   
 
@@ -16,7 +16,7 @@
 
   
 
-  <link rel="canonical" href="http://rainux.github.com/index.html"/>
+  <link rel="canonical" href="http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/"/>
   <link href="/favicon.ico" rel="shortcut icon" />
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -56,15 +56,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
-
-
-
-  <article>
-    
+      <div>
+<article class="hentry">
+  
   <header>
     
-      <h1 class="entry-title"><a href="/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/">Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8</a></h1>
+      <h1 class="entry-title">Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8</h1>
     
     
       <p class="meta">
@@ -82,7 +79,7 @@
   </header>
 
 
-  <div class="entry-content"><h2>Use Xavier Shay&#8217;s patched Ruby 1.9.3dev</h2>
+<div class="entry-content"><h2>Use Xavier Shay&#8217;s patched Ruby 1.9.3dev</h2>
 
 <p>There were <a href="http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html">two patches for Ruby 1.9</a> to resolve the load performance issue. Xavier Shay&#8217;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.</p>
 
@@ -266,21 +263,16 @@
 </div></code></pre></td></tr></table></div></figure>
 
 </div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  
 
+<span class="byline author vcard">Posted by <span class="fn">Rainux Luo</span></span>
 
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/">Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</a></h1>
-    
-    
-      <p class="meta">
+      
 
 
 
@@ -290,258 +282,51 @@
 
 
 
-<time datetime="2011-07-23T20:09:00+08:00" pubdate  data-updated="true" >Jul 23<span>rd</span>, 2011</time></p>
+<time datetime="2011-09-16T17:00:00+08:00" pubdate  data-updated="true" >Sep 16<span>th</span>, 2011</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/categories/rails/'>Rails</a>, <a class='category' href='/categories/ruby/'>Ruby</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><ul>
-<li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&#8217;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
-</ul>
-
-
-<figure role=code><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span>
-</div></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Set Javascript driver to <code>:webkit</code> for Capybara in <code>spec_helper.rb</code>.</li>
-</ul>
-
-
-<figure role=code><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">javascript_driver</span> <span class="o">=</span> <span class="ss">:webkit</span>
-</div></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p>Configure RSpec use non-transactional fixtures, configure <a href="https://github.com/bmabey/database_cleaner">Database Cleaner</a> in <code>spec_helper.rb</code>.</p>
-
-<p>Notice with this setup, we&#8217;ll only use truncation strategy when driver is not <code>:rack_test</code>. this will make normal specs run faster.</p></li>
-</ul>
-
-
-<figure role=code><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-<span class='line'>6</span>
-<span class='line'>7</span>
-<span class='line'>8</span>
-<span class='line'>9</span>
-<span class='line'>10</span>
-<span class='line'>11</span>
-<span class='line'>12</span>
-<span class='line'>13</span>
-<span class='line'>14</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">false</span>
-</div><div class='line'>
-</div><div class='line'><span class="n">config</span><span class="o">.</span><span class="n">before</span> <span class="ss">:each</span> <span class="k">do</span>
-</div><div class='line'>  <span class="k">if</span> <span class="no">Capybara</span><span class="o">.</span><span class="n">current_driver</span> <span class="o">==</span> <span class="ss">:rack_test</span>
-</div><div class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:transaction</span>
-</div><div class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">start</span>
-</div><div class='line'>  <span class="k">else</span>
-</div><div class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:truncation</span>
-</div><div class='line'>  <span class="k">end</span>
-</div><div class='line'><span class="k">end</span>
-</div><div class='line'>
-</div><div class='line'><span class="n">config</span><span class="o">.</span><span class="n">after</span> <span class="ss">:each</span> <span class="k">do</span>
-</div><div class='line'>  <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">clean</span>
-</div><div class='line'><span class="k">end</span>
-</div></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Tag your scenarios in <code>spec/acceptance/*_spec.rb</code> to use Javascript driver if necessary.</li>
-</ul>
-
-
-<figure role=code><figcaption><span>some_spec.rb</span></figcaption><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
-</div><div class='line'><span class="k">end</span>
-</div></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p>Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.</p>
-
-<p>For example if you have a simple AJAX form, the <code>success</code> callback will simply redirect browser to another page via <code>location.href = '/yet_another_page';</code>. You can use the following code to wait for it done.</p></li>
-</ul>
-
-
-<figure role=code><figcaption><span>another_spec.rb</span></figcaption><div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers"><span class='line'>1</span>
-<span class='line'>2</span>
-<span class='line'>3</span>
-<span class='line'>4</span>
-<span class='line'>5</span>
-<span class='line'>6</span>
-<span class='line'>7</span>
-<span class='line'>8</span>
-<span class='line'>9</span>
-</pre></td><td class='code' width='100%'><pre><code class='ruby'><div class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
-</div><div class='line'>  <span class="n">visit</span> <span class="n">new_lolita_path</span>
-</div><div class='line'>
-</div><div class='line'>  <span class="n">click_on</span> <span class="s1">&#39;Submit&#39;</span>
-</div><div class='line'>
-</div><div class='line'>  <span class="n">wait_until</span> <span class="p">{</span> <span class="n">page</span><span class="o">.</span><span class="n">current_path</span> <span class="o">==</span> <span class="n">lolita_path</span><span class="p">(</span><span class="no">Lolita</span><span class="o">.</span><span class="n">last</span><span class="p">)</span> <span class="p">}</span>
-</div><div class='line'>
-</div><div class='line'>  <span class="c1"># Your expections for the new page</span>
-</div><div class='line'><span class="k">end</span>
-</div></code></pre></td></tr></table></div></figure>
-
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/" data-via="" data-counturl="http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
 </div>
-  
-  
 
-
-  </article>
-
-
-  <article>
     
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/02/03/google-pinyin-ime-for-android-mod-v3/">Google 拼音输入法 Android 版 MOD v3</a></h1>
-    
-    
-      <p class="meta">
+  </footer>
+</article>
 
-
-
-
-
-  
-
-
-
-<time datetime="2011-02-03T14:44:00+08:00" pubdate  data-updated="true" >Feb 3<span>rd</span>, 2011</time></p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。</p>
-
-<p>懒得另外写说明了，直接引用 <a href="https://github.com/rainux/com.google.android.inputmethod.pinyin">GitHub repo</a> 里的 README 吧。</p>
-
-<h2>目的</h2>
-
-<p>使用 <a href="http://code.google.com/p/android-apktool/">apktool</a> 对 Google 拼音输入法 Android 版进行反向工程[注1]，在 Dalvik JVM 汇编层级微调修改它，使其更适合日常使用。</p>
-
-<p>注1：实际上不是真正完整的反向工程，后来有大量借助 <a href="http://source.android.com/">Android Open Source Project</a> 中 Google 拼音输入法 1.0.0 的 Java 源代码理解反汇编得到的 smali 代码。</p>
-
-<h2>问题修正</h2>
-
-<ul>
-<li>中文模式下硬件键盘上某些标点符号没有被正确映射为中文（全角）形态，尤其是在 T-Mobile G2 上。</li>
-<li>中文模式下在软键盘未初始化时使用硬件键盘 Enter 键会导致 Google 拼音崩溃。</li>
-<li>中文模式下软键盘上的圆括号不是中文（全角）形态。</li>
-<li>软键盘上的 &amp; 和 &lt; 符号被不正确地转义成了 &amp;amp; 和 &amp;lt;。（MOD 版引入的问题。）</li>
-<li>中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）</li>
-</ul>
-
-
-<h2>细节改进</h2>
-
-<ul>
-<li>中文模式空闲和联想状态下 Alt + Del 像系统默认行为一样删除当前行。</li>
-<li>中文模式选字状态下 Alt + Del 删除所有拼音字符并回到空闲状态。</li>
-<li>中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）</li>
-<li>中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。</li>
-</ul>
-
-
-<h2>如何使用</h2>
-
-<p>下载 <a href="https://github.com/downloads/rainux/com.google.android.inputmethod.pinyin/Google_Pinyin_IME_v1.3.4_MOD_v3.apk">Google 拼音输入法 1.3.4 MOD v3</a>，使用 adb 工具或 Android 的 Package Manager 安装。或者 git clone 此 smali 源代码仓库自己用 apktool 编译生成 .apk 文件。</p>
-
-<p>注意：<strong>安装 MOD 版本之前必须先卸载官方版本，这是因为 MOD 版本签名所使用的证书不可能与官方版本一致。</strong></p>
-
-<h2>感谢</h2>
-
-<ul>
-<li>@<a href="http://twitter.com/pipitu">pipitu</a>: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。</li>
-</ul>
-
-</div>
-  
-  
-
-
-  </article>
-
-
-  <article>
-    
-  <header>
-    
-      <h1 class="entry-title"><a href="/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/">推荐一些 Ruby on Rails 学习资料</a></h1>
-    
-    
-      <p class="meta">
-
-
-
-
-
-  
-
-
-
-<time datetime="2011-01-12T02:04:00+08:00" pubdate  data-updated="true" >Jan 12<span>th</span>, 2011</time></p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Ruby</h2>
-
-<p>开始之前应该看看 <a href="http://www.ruby-lang.org/">Ruby 官方网站</a> 上的 <a href="http://www.ruby-lang.org/en/about/">About Ruby</a>、<a href="http://www.ruby-lang.org/en/documentation/quickstart/">Ruby in Twenty Minutes</a> 和 <a href="http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby From Other Languages</a> 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。</p>
-
-<p>经验比较丰富的开发者可以通过 <a href="http://www.rubyist.net/~slagell/ruby/">Ruby User&#8217;s Guide</a> [注1] 快速入门 Ruby，之后应该准备一本 <a href="http://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a> 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 <a href="http://ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby</a> 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，<a href="http://www.china-pub.com/195252">Ruby Programming: 向Ruby之父学程序设计</a> 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。</p>
-
-<h2>Rails</h2>
-
-<p>同样，有经验的开发者可以直接通过 <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> 入门 Rails。而 <a href="http://pragprog.com/titles/rails4/agile-web-development-with-rails">Agile Web Development with Rails</a> 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。</p>
-
-<h2>中文资料</h2>
-
-<p><a href="http://twitter.com/ihower">@ihower</a> 组织的 <a href="http://ruby.tw">Ruby Taiwan</a> 社区有提供 <a href="http://guides.ruby.tw/ruby/">Ruby User&#8217;s Guide</a> 的繁体中文翻译以及 <a href="http://guides.ruby.tw/rails3/">Ruby on Rails Guides</a> 前两章的繁体中文翻译。<a href="http://twitter.com/ihower">@ihower</a> 自己编写的 <a href="http://ihower.tw/rails3/">Ruby on Rails 實戰手冊</a> 也是一部很不错的面向有一定经验开发者的在线书籍。</p>
-
-<h2>其它</h2>
-
-<p>Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 <a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a>。</p>
-
-<p>真正开始使用 Ruby on Rails 之后，<a href="http://www.railsapi.com/">Rails Searchable API Doc</a> 和 <a href="http://rdoc.info/">RubyDoc.info</a> 一定会是最常用的两个在线文档服务。</p>
-
-<p>注1: Ruby User&#8217;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.8.7。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 <a href="https://github.com/janlelis/irbtools">irbtools</a> 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。</p>
-</div>
-  
-  
-
-
-  </article>
-
-<nav role="pagination">
-  <div>
-    
-    <a href="/archives">Archives</a>
-    
-  </div>
-</nav>
-
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread"><div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_shortname = 'rainux-reincarnation';
-    (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
+  var disqus_shortname = 'rainux-reincarnation';
+  var disqus_identifier = 'http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/';
+  var disqus_url = 'http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/';
+  //var disqus_developer = 1;
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
+
 <aside role=sidebar>
   
     <section>
@@ -570,7 +355,7 @@
 <section>
   <h1>Github Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/rainux">@rainux</a> on Github
@@ -602,6 +387,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
