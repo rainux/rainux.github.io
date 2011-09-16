@@ -4,7 +4,7 @@
   <title>Reincarnation</title>
   <link href="http://rainux.github.com/atom.xml" rel="self"/>
   <link href="http://rainux.github.com/"/>
-  <updated>2011-09-17T00:41:35+08:00</updated>
+  <updated>2011-09-17T00:47:03+08:00</updated>
   <id>http://rainux.github.com/</id>
   <author>
     <name>Rainux Luo</name>
@@ -14,9 +14,9 @@
   
   <entry>
     <title>Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8</title>
-    <link href="http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/"/>
-    <updated>2011-09-16T17:00:00+08:00</updated>
-    <id>http://rainux.github.com/2011/09/16/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8</id>
+    <link href="http://rainux.github.com/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/"/>
+    <updated>2011-09-17T00:44:00+08:00</updated>
+    <id>http://rainux.github.com/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8</id>
     <content type="html">&lt;h2&gt;Use Xavier Shay&amp;#8217;s patched Ruby 1.9.3dev&lt;/h2&gt;
 
 &lt;p&gt;There were &lt;a href=&quot;http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html&quot;&gt;two patches for Ruby 1.9&lt;/a&gt; to resolve the load performance issue. Xavier Shay&amp;#8217;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.&lt;/p&gt;
