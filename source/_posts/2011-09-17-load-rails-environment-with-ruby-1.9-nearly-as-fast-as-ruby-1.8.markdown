@@ -26,6 +26,10 @@ Yeah, it will be installed as `ruby-head`.
 
 Note: Absolutely this should only be used in development environment, since it's a development version of Ruby 1.9.3.
 
+### Updated on Sep 28, 2011:
+
+The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay's patched Ruby 1.9.3dev. Which make this trick no longer necessary.
+
 ## Tweak Gemfile to not require unnecessary gems immediately
 
 Most gems in `development` and `test` group are unnecessary to be required immediately, gems for test can be required in `spec_helper.rb`. Here is part of my Gemfile for a small project:
