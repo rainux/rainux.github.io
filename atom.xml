@@ -4,7 +4,7 @@
   <title>Reincarnation</title>
   <link href="http://rainux.github.com/atom.xml" rel="self"/>
   <link href="http://rainux.github.com/"/>
-  <updated>2011-09-28T17:03:49+08:00</updated>
+  <updated>2011-09-28T17:05:15+08:00</updated>
   <id>http://rainux.github.com/</id>
   <author>
     <name>Rainux Luo</name>
@@ -46,7 +46,7 @@
 
 &lt;h3&gt;Updated on Sep 28, 2011:&lt;/h3&gt;
 
-&lt;p&gt;The official Ruby 1.9.3 rc1 released recently, it has almost same load performance compared to Xavier Shay&amp;#8217;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.&lt;/p&gt;
+&lt;p&gt;The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay&amp;#8217;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.&lt;/p&gt;
 
 &lt;h2&gt;Tweak Gemfile to not require unnecessary gems immediately&lt;/h2&gt;
 
