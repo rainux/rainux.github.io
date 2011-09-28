@@ -109,6 +109,10 @@
 
 <p>Note: Absolutely this should only be used in development environment, since it&#8217;s a development version of Ruby 1.9.3.</p>
 
+<h3>Updated on Sep 28, 2011:</h3>
+
+<p>The official Ruby 1.9.3 rc1 released recently, it has almost same load performance compared to Xavier Shay&#8217;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.</p>
+
 <h2>Tweak Gemfile to not require unnecessary gems immediately</h2>
 
 <p>Most gems in <code>development</code> and <code>test</code> group are unnecessary to be required immediately, gems for test can be required in <code>spec_helper.rb</code>. Here is part of my Gemfile for a small project:</p>
