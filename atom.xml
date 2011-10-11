@@ -1,395 +1,396 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>Reincarnation</title>
+  <title><![CDATA[Reincarnation]]></title>
   <link href="http://rainux.github.com/atom.xml" rel="self"/>
   <link href="http://rainux.github.com/"/>
-  <updated>2011-09-28T17:05:15+08:00</updated>
+  <updated>2011-10-12T07:54:22+08:00</updated>
   <id>http://rainux.github.com/</id>
   <author>
-    <name>Rainux Luo</name>
+    <name><![CDATA[Rainux Luo]]></name>
     
   </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title>Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8</title>
+    <title type="html"><![CDATA[Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8]]></title>
     <link href="http://rainux.github.com/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/"/>
     <updated>2011-09-17T00:44:00+08:00</updated>
     <id>http://rainux.github.com/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8</id>
-    <content type="html">&lt;h2&gt;Use Xavier Shay&amp;#8217;s patched Ruby 1.9.3dev&lt;/h2&gt;
+    <content type="html"><![CDATA[<h2>Use Xavier Shay&#8217;s patched Ruby 1.9.3dev</h2>
 
-&lt;p&gt;There were &lt;a href=&quot;http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html&quot;&gt;two patches for Ruby 1.9&lt;/a&gt; to resolve the load performance issue. Xavier Shay&amp;#8217;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.&lt;/p&gt;
+<p>There were <a href="http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html">two patches for Ruby 1.9</a> to resolve the load performance issue. Xavier Shay&#8217;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.</p>
 
-&lt;p&gt;Use Xavier Shay&amp;#8217;s patch may not easy, here is a small trick to install his fork of Ruby with rvm:&lt;/p&gt;
+<p>Use Xavier Shay&#8217;s patch may not easy, here is a small trick to install his fork of Ruby with rvm:</p>
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;Shell commands&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; ~/.rvm/repos
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;git clone git://github.com/xaviershay/ruby.git ruby-head
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rvm install ruby-head &#8211;branch require-performance-fix
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rvm use ruby-head
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;ruby &#8211;version
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;ruby 1.9.3dev &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2011-05-31 trunk 31827&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;x86_64-linux&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
-
-
-&lt;p&gt;Yeah, it will be installed as &lt;code&gt;ruby-head&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;Note: Absolutely this should only be used in development environment, since it&amp;#8217;s a development version of Ruby 1.9.3.&lt;/p&gt;
-
-&lt;h3&gt;Updated on Sep 28, 2011:&lt;/h3&gt;
-
-&lt;p&gt;The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay&amp;#8217;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.&lt;/p&gt;
-
-&lt;h2&gt;Tweak Gemfile to not require unnecessary gems immediately&lt;/h2&gt;
-
-&lt;p&gt;Most gems in &lt;code&gt;development&lt;/code&gt; and &lt;code&gt;test&lt;/code&gt; group are unnecessary to be required immediately, gems for test can be required in &lt;code&gt;spec_helper.rb&lt;/code&gt;. Here is part of my Gemfile for a small project:&lt;/p&gt;
-
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;Gemfile&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;10&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;11&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;12&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;13&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;14&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;15&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;16&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;17&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;18&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;19&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;20&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;21&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;22&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;23&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;24&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;25&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;26&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;27&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;28&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;29&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;30&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;31&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;32&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;33&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;34&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;35&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;36&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;37&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;38&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;39&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;40&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;bond&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;irbtools&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;irb_rocket&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capistrano&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rails3-generators&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;c1&quot;&gt;# Only used for mo/po file generation in development, see rake -T gettext.&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;gettext&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 1.9.3&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:development&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;awesome_print&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;ap&amp;#39;&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;factory_girl_rails&amp;#39;&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rspec-rails&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 2.5.0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capybara&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 0.3.6&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capybara-webkit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 1.0.0.beta4&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;launchy&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;cucumber-rails&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:test&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;spork&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 0.9.0.rc5&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rspec&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 2.5.0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;remarkable&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 4.0.0.alpha4&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;remarkable_activemodel&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 4.0.0.alpha4&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;remarkable_mongoid&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;database_cleaner&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 0.5.0&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard-bundler&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard-spork&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard-rspec&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;guard-cucumber&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;group&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:linux&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rb-inotify&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;libnotify&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;therubyracer&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<figure class='code'><figcaption><span>Shell commands</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/.rvm/repos
+</span><span class='line'><span class="nv">$ </span>git clone git://github.com/xaviershay/ruby.git ruby-head
+</span><span class='line'><span class="nv">$ </span>rvm install ruby-head --branch require-performance-fix
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ </span>rvm use ruby-head
+</span><span class='line'><span class="nv">$ </span>ruby --version
+</span><span class='line'>ruby 1.9.3dev <span class="o">(</span>2011-05-31 trunk 31827<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-&lt;h2&gt;How about the result?&lt;/h2&gt;
+<p>Yeah, it will be installed as <code>ruby-head</code>.</p>
 
-&lt;p&gt;My recent project using Xavier Shay&amp;#8217;s Ruby 1.9.3dev:&lt;/p&gt;
+<p>Note: Absolutely this should only be used in development environment, since it&#8217;s a development version of Ruby 1.9.3.</p>
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;10&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;11&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;12&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;13&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;14&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;15&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;rake about
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;/home/rainux/.rvm/gems/ruby-head/gems/activesupport-3.0.10/lib/active_support/dependencies.rb:239:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;block in require&lt;span class=&quot;s1&quot;&gt;&amp;#39;: iconv will be deprecated in the future, use String#encode instead.&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;s1&quot;&gt;About your application&amp;#39;&lt;/span&gt;s environment
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Ruby version              1.9.3 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;x86_64-linux&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;RubyGems version          1.8.10
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Rack version              1.2
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Rails version             3.0.10
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Action Pack version       3.0.10
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Active Resource version   3.0.10
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Action Mailer version     3.0.10
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Active Support version    3.0.10
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Middleware                ActionDispatch::Static, Rack::Lock, ActiveSupport::Cache::Strategy::LocalCache, Rack::Runtime, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::RemoteIp, Rack::Sendfile, ActionDispatch::Callbacks, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::MethodOverride, ActionDispatch::Head, ActionDispatch::BestStandardsSupport, Warden::Manager, Sass::Plugin::Rack, Rack::Mongoid::Middleware::IdentityMap, Barista::Filter, Barista::Server::Proxy
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Application root          /home/rainux/devel/a_rails_app
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Environment               development
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;rake about  5.15s user 0.35s system 99% cpu 5.501 total
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<h3>Updated on Sep 28, 2011:</h3>
+
+<p>The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay&#8217;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.</p>
+
+<h2>Tweak Gemfile to not require unnecessary gems immediately</h2>
+
+<p>Most gems in <code>development</code> and <code>test</code> group are unnecessary to be required immediately, gems for test can be required in <code>spec_helper.rb</code>. Here is part of my Gemfile for a small project:</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;bond&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;irbtools&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;irb_rocket&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capistrano&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rails3-generators&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="c1"># Only used for mo/po file generation in development, see rake -T gettext.</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;gettext&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.9.3&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;awesome_print&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="s1">&#39;ap&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;factory_girl_rails&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capybara&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.3.6&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;launchy&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;cucumber-rails&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;spork&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.9.0.rc5&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 4.0.0.alpha4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable_activemodel&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 4.0.0.alpha4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable_mongoid&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;database_cleaner&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-bundler&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-spork&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-cucumber&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:linux</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rb-inotify&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;libnotify&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;therubyracer&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-&lt;p&gt;Compare to another project using Ruby 1.8.7 (actually, ree-1.8.7-2011.03), without tweak Gemfile:&lt;/p&gt;
+<h2>How about the result?</h2>
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;10&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;11&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;12&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;13&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;14&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;bash&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;time &lt;/span&gt;rake about
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;About your application&lt;span class=&quot;err&quot;&gt;&amp;#39;&lt;/span&gt;s environment
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Ruby version              1.8.7 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;x86_64-linux&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;RubyGems version          1.6.2
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Rack version              1.2
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Rails version             3.0.9
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Active Record version     3.0.9
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Action Pack version       3.0.9
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Active Resource version   3.0.9
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Action Mailer version     3.0.9
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Active Support version    3.0.9
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Application root          /home/rainux/devel/yet_another_rails_app
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;Environment               development
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;rake about  3.65s user 0.92s system 99% cpu 4.585 total
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<p>My recent project using Xavier Shay&#8217;s Ruby 1.9.3dev:</p>
 
-</content>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">time </span>rake about
+</span><span class='line'>/home/rainux/.rvm/gems/ruby-head/gems/activesupport-3.0.10/lib/active_support/dependencies.rb:239:in <span class="sb">`</span>block in require<span class="s1">&#39;: iconv will be deprecated in the future, use String#encode instead.</span>
+</span><span class='line'><span class="s1">About your application&#39;</span>s environment
+</span><span class='line'>Ruby version              1.9.3 <span class="o">(</span>x86_64-linux<span class="o">)</span>
+</span><span class='line'>RubyGems version          1.8.10
+</span><span class='line'>Rack version              1.2
+</span><span class='line'>Rails version             3.0.10
+</span><span class='line'>Action Pack version       3.0.10
+</span><span class='line'>Active Resource version   3.0.10
+</span><span class='line'>Action Mailer version     3.0.10
+</span><span class='line'>Active Support version    3.0.10
+</span><span class='line'>Middleware                ActionDispatch::Static, Rack::Lock, ActiveSupport::Cache::Strategy::LocalCache, Rack::Runtime, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::RemoteIp, Rack::Sendfile, ActionDispatch::Callbacks, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::MethodOverride, ActionDispatch::Head, ActionDispatch::BestStandardsSupport, Warden::Manager, Sass::Plugin::Rack, Rack::Mongoid::Middleware::IdentityMap, Barista::Filter, Barista::Server::Proxy
+</span><span class='line'>Application root          /home/rainux/devel/a_rails_app
+</span><span class='line'>Environment               development
+</span><span class='line'>rake about  5.15s user 0.35s system 99% cpu 5.501 total
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Compare to another project using Ruby 1.8.7 (actually, ree-1.8.7-2011.03), without tweak Gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">time </span>rake about
+</span><span class='line'>About your application<span class="err">&#39;</span>s environment
+</span><span class='line'>Ruby version              1.8.7 <span class="o">(</span>x86_64-linux<span class="o">)</span>
+</span><span class='line'>RubyGems version          1.6.2
+</span><span class='line'>Rack version              1.2
+</span><span class='line'>Rails version             3.0.9
+</span><span class='line'>Active Record version     3.0.9
+</span><span class='line'>Action Pack version       3.0.9
+</span><span class='line'>Active Resource version   3.0.9
+</span><span class='line'>Action Mailer version     3.0.9
+</span><span class='line'>Active Support version    3.0.9
+</span><span class='line'>Application root          /home/rainux/devel/yet_another_rails_app
+</span><span class='line'>Environment               development
+</span><span class='line'>rake about  3.65s user 0.92s system 99% cpu 4.585 total
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
   </entry>
   
   <entry>
-    <title>Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</title>
+    <title type="html"><![CDATA[Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX]]></title>
     <link href="http://rainux.github.com/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
     <updated>2011-07-23T20:09:00+08:00</updated>
     <id>http://rainux.github.com/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
-    <content type="html">&lt;ul&gt;
-&lt;li&gt;Add &lt;code&gt;capybara-webkit&lt;/code&gt; to your &lt;code&gt;Gemfile&lt;/code&gt; and let &lt;a href=&quot;https://github.com/guard/guard-bundler&quot;&gt;Guard::Bundler&lt;/a&gt; install it automatically (or manually via &lt;code&gt;bundle install&lt;/code&gt; if you don&amp;#8217;t use &lt;a href=&quot;https://github.com/guard/guard&quot;&gt;Guard&lt;/a&gt;).&lt;/li&gt;
-&lt;/ul&gt;
+    <content type="html"><![CDATA[<ul>
+<li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&#8217;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
+</ul>
 
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;Gemfile&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;capybara-webkit&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;gt;= 1.0.0.beta4&amp;#39;&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-&lt;ul&gt;
-&lt;li&gt;Set Javascript driver to &lt;code&gt;:webkit&lt;/code&gt; for Capybara in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>Set Javascript driver to <code>:webkit</code> for Capybara in <code>spec_helper.rb</code>.</li>
+</ul>
 
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;spec_helper.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;no&quot;&gt;Capybara&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;javascript_driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:webkit&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<figure class='code'><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">javascript_driver</span> <span class="o">=</span> <span class="ss">:webkit</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Configure RSpec use non-transactional fixtures, configure &lt;a href=&quot;https://github.com/bmabey/database_cleaner&quot;&gt;Database Cleaner&lt;/a&gt; in &lt;code&gt;spec_helper.rb&lt;/code&gt;.&lt;/p&gt;
+<ul>
+<li><p>Configure RSpec use non-transactional fixtures, configure <a href="https://github.com/bmabey/database_cleaner">Database Cleaner</a> in <code>spec_helper.rb</code>.</p>
 
-&lt;p&gt;Notice with this setup, we&amp;#8217;ll only use truncation strategy when driver is not &lt;code&gt;:rack_test&lt;/code&gt;. this will make normal specs run faster.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;spec_helper.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;10&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;11&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;12&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;13&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;14&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;use_transactional_fixtures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;false&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;before&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Capybara&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_driver&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:rack_test&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strategy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:transaction&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;    &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;strategy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:truncation&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;after&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:each&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;no&quot;&gt;DatabaseCleaner&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;clean&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<p>Notice with this setup, we&#8217;ll only use truncation strategy when driver is not <code>:rack_test</code>. this will make normal specs run faster.</p></li>
+</ul>
 
 
-&lt;ul&gt;
-&lt;li&gt;Tag your scenarios in &lt;code&gt;spec/acceptance/*_spec.rb&lt;/code&gt; to use Javascript driver if necessary.&lt;/li&gt;
-&lt;/ul&gt;
+<figure class='code'><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">false</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">before</span> <span class="ss">:each</span> <span class="k">do</span>
+</span><span class='line'>  <span class="k">if</span> <span class="no">Capybara</span><span class="o">.</span><span class="n">current_driver</span> <span class="o">==</span> <span class="ss">:rack_test</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:transaction</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">start</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:truncation</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">after</span> <span class="ss">:each</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">clean</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;some_spec.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;scenario&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Create a lolita via AJAX&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:js&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<ul>
+<li>Tag your scenarios in <code>spec/acceptance/*_spec.rb</code> to use Javascript driver if necessary.</li>
+</ul>
 
 
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.&lt;/p&gt;
+<figure class='code'><figcaption><span>some_spec.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-&lt;p&gt;For example if you have a simple AJAX form, the &lt;code&gt;success&lt;/code&gt; callback will simply redirect browser to another page via &lt;code&gt;location.href = &#8216;/yet_another_page&#8217;;&lt;/code&gt;. You can use the following code to wait for it done.&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
+
+<ul>
+<li><p>Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.</p>
+
+<p>For example if you have a simple AJAX form, the <code>success</code> callback will simply redirect browser to another page via <code>location.href = '/yet_another_page';</code>. You can use the following code to wait for it done.</p></li>
+</ul>
 
 
-&lt;figure role=code&gt;&lt;figcaption&gt;&lt;span&gt;another_spec.rb&lt;/span&gt;&lt;/figcaption&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;table cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre class=&quot;line-numbers&quot;&gt;&lt;span class=&#8217;line&#8217;&gt;1&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;2&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;3&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;4&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;5&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;6&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;7&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;8&lt;/span&gt;
-&lt;span class=&#8217;line&#8217;&gt;9&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#8217;code&#8217; width=&#8217;100%&#8217;&gt;&lt;pre&gt;&lt;code class=&#8217;ruby&#8217;&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;n&quot;&gt;scenario&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Create a lolita via AJAX&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:js&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;visit&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new_lolita_path&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;click_on&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;Submit&amp;#39;&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;n&quot;&gt;wait_until&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;current_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lolita_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Lolita&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;last&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;  &lt;span class=&quot;c1&quot;&gt;# Your expections for the new page&lt;/span&gt;
-&lt;/div&gt;&lt;div class=&#8217;line&#8217;&gt;&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/div&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&lt;/figure&gt;
+<figure class='code'><figcaption><span>another_spec.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">visit</span> <span class="n">new_lolita_path</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">click_on</span> <span class="s1">&#39;Submit&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">wait_until</span> <span class="p">{</span> <span class="n">page</span><span class="o">.</span><span class="n">current_path</span> <span class="o">==</span> <span class="n">lolita_path</span><span class="p">(</span><span class="no">Lolita</span><span class="o">.</span><span class="n">last</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Your expections for the new page</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-</content>
+]]></content>
   </entry>
   
   <entry>
-    <title>Google 拼音输入法 Android 版 MOD v3</title>
+    <title type="html"><![CDATA[Google 拼音输入法 Android 版 MOD v3]]></title>
     <link href="http://rainux.github.com/2011/02/03/google-pinyin-ime-for-android-mod-v3/"/>
     <updated>2011-02-03T14:44:00+08:00</updated>
     <id>http://rainux.github.com/2011/02/03/google-pinyin-ime-for-android-mod-v3</id>
-    <content type="html">&lt;p&gt;前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。&lt;/p&gt;
+    <content type="html"><![CDATA[<p>前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。</p>
 
-&lt;p&gt;懒得另外写说明了，直接引用 &lt;a href=&quot;https://github.com/rainux/com.google.android.inputmethod.pinyin&quot;&gt;GitHub repo&lt;/a&gt; 里的 README 吧。&lt;/p&gt;
+<p>懒得另外写说明了，直接引用 <a href="https://github.com/rainux/com.google.android.inputmethod.pinyin">GitHub repo</a> 里的 README 吧。</p>
 
-&lt;h2&gt;目的&lt;/h2&gt;
+<h2>目的</h2>
 
-&lt;p&gt;使用 &lt;a href=&quot;http://code.google.com/p/android-apktool/&quot;&gt;apktool&lt;/a&gt; 对 Google 拼音输入法 Android 版进行反向工程[注1]，在 Dalvik JVM 汇编层级微调修改它，使其更适合日常使用。&lt;/p&gt;
+<p>使用 <a href="http://code.google.com/p/android-apktool/">apktool</a> 对 Google 拼音输入法 Android 版进行反向工程[注1]，在 Dalvik JVM 汇编层级微调修改它，使其更适合日常使用。</p>
 
-&lt;p&gt;注1：实际上不是真正完整的反向工程，后来有大量借助 &lt;a href=&quot;http://source.android.com/&quot;&gt;Android Open Source Project&lt;/a&gt; 中 Google 拼音输入法 1.0.0 的 Java 源代码理解反汇编得到的 smali 代码。&lt;/p&gt;
+<p>注1：实际上不是真正完整的反向工程，后来有大量借助 <a href="http://source.android.com/">Android Open Source Project</a> 中 Google 拼音输入法 1.0.0 的 Java 源代码理解反汇编得到的 smali 代码。</p>
 
-&lt;h2&gt;问题修正&lt;/h2&gt;
+<h2>问题修正</h2>
 
-&lt;ul&gt;
-&lt;li&gt;中文模式下硬件键盘上某些标点符号没有被正确映射为中文（全角）形态，尤其是在 T-Mobile G2 上。&lt;/li&gt;
-&lt;li&gt;中文模式下在软键盘未初始化时使用硬件键盘 Enter 键会导致 Google 拼音崩溃。&lt;/li&gt;
-&lt;li&gt;中文模式下软键盘上的圆括号不是中文（全角）形态。&lt;/li&gt;
-&lt;li&gt;软键盘上的 &amp;amp; 和 &amp;lt; 符号被不正确地转义成了 &amp;amp;amp; 和 &amp;amp;lt;。（MOD 版引入的问题。）&lt;/li&gt;
-&lt;li&gt;中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;细节改进&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;中文模式空闲和联想状态下 Alt + Del 像系统默认行为一样删除当前行。&lt;/li&gt;
-&lt;li&gt;中文模式选字状态下 Alt + Del 删除所有拼音字符并回到空闲状态。&lt;/li&gt;
-&lt;li&gt;中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）&lt;/li&gt;
-&lt;li&gt;中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>中文模式下硬件键盘上某些标点符号没有被正确映射为中文（全角）形态，尤其是在 T-Mobile G2 上。</li>
+<li>中文模式下在软键盘未初始化时使用硬件键盘 Enter 键会导致 Google 拼音崩溃。</li>
+<li>中文模式下软键盘上的圆括号不是中文（全角）形态。</li>
+<li>软键盘上的 &amp; 和 &lt; 符号被不正确地转义成了 &amp;amp; 和 &amp;lt;。（MOD 版引入的问题。）</li>
+<li>中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）</li>
+</ul>
 
 
-&lt;h2&gt;如何使用&lt;/h2&gt;
+<h2>细节改进</h2>
 
-&lt;p&gt;下载 &lt;a href=&quot;https://github.com/downloads/rainux/com.google.android.inputmethod.pinyin/Google_Pinyin_IME_v1.3.4_MOD_v3.apk&quot;&gt;Google 拼音输入法 1.3.4 MOD v3&lt;/a&gt;，使用 adb 工具或 Android 的 Package Manager 安装。或者 git clone 此 smali 源代码仓库自己用 apktool 编译生成 .apk 文件。&lt;/p&gt;
+<ul>
+<li>中文模式空闲和联想状态下 Alt + Del 像系统默认行为一样删除当前行。</li>
+<li>中文模式选字状态下 Alt + Del 删除所有拼音字符并回到空闲状态。</li>
+<li>中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）</li>
+<li>中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。</li>
+</ul>
 
-&lt;p&gt;注意：&lt;strong&gt;安装 MOD 版本之前必须先卸载官方版本，这是因为 MOD 版本签名所使用的证书不可能与官方版本一致。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;h2&gt;感谢&lt;/h2&gt;
+<h2>如何使用</h2>
 
-&lt;ul&gt;
-&lt;li&gt;@&lt;a href=&quot;http://twitter.com/pipitu&quot;&gt;pipitu&lt;/a&gt;: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。&lt;/li&gt;
-&lt;/ul&gt;
+<p>下载 <a href="https://github.com/downloads/rainux/com.google.android.inputmethod.pinyin/Google_Pinyin_IME_v1.3.4_MOD_v3.apk">Google 拼音输入法 1.3.4 MOD v3</a>，使用 adb 工具或 Android 的 Package Manager 安装。或者 git clone 此 smali 源代码仓库自己用 apktool 编译生成 .apk 文件。</p>
 
-</content>
+<p>注意：<strong>安装 MOD 版本之前必须先卸载官方版本，这是因为 MOD 版本签名所使用的证书不可能与官方版本一致。</strong></p>
+
+<h2>感谢</h2>
+
+<ul>
+<li>@<a href="http://twitter.com/pipitu">pipitu</a>: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。</li>
+</ul>
+
+]]></content>
   </entry>
   
   <entry>
-    <title>推荐一些 Ruby on Rails 学习资料</title>
+    <title type="html"><![CDATA[推荐一些 Ruby on Rails 学习资料]]></title>
     <link href="http://rainux.github.com/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/"/>
     <updated>2011-01-12T02:04:00+08:00</updated>
     <id>http://rainux.github.com/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning</id>
-    <content type="html">&lt;h2&gt;Ruby&lt;/h2&gt;
+    <content type="html"><![CDATA[<h2>Ruby</h2>
 
-&lt;p&gt;开始之前应该看看 &lt;a href=&quot;http://www.ruby-lang.org/&quot;&gt;Ruby 官方网站&lt;/a&gt; 上的 &lt;a href=&quot;http://www.ruby-lang.org/en/about/&quot;&gt;About Ruby&lt;/a&gt;、&lt;a href=&quot;http://www.ruby-lang.org/en/documentation/quickstart/&quot;&gt;Ruby in Twenty Minutes&lt;/a&gt; 和 &lt;a href=&quot;http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/&quot;&gt;Ruby From Other Languages&lt;/a&gt; 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。&lt;/p&gt;
+<p>开始之前应该看看 <a href="http://www.ruby-lang.org/">Ruby 官方网站</a> 上的 <a href="http://www.ruby-lang.org/en/about/">About Ruby</a>、<a href="http://www.ruby-lang.org/en/documentation/quickstart/">Ruby in Twenty Minutes</a> 和 <a href="http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby From Other Languages</a> 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。</p>
 
-&lt;p&gt;经验比较丰富的开发者可以通过 &lt;a href=&quot;http://www.rubyist.net/~slagell/ruby/&quot;&gt;Ruby User&amp;#8217;s Guide&lt;/a&gt; [注1] 快速入门 Ruby，之后应该准备一本 &lt;a href=&quot;http://books.google.com/books?id=jcUbTcr5XWwC&quot;&gt;The Ruby Programming Language&lt;/a&gt; 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 &lt;a href=&quot;http://ruby-doc.org/docs/ProgrammingRuby/&quot;&gt;Programming Ruby&lt;/a&gt; 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，&lt;a href=&quot;http://www.china-pub.com/195252&quot;&gt;Ruby Programming: 向Ruby之父学程序设计&lt;/a&gt; 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。&lt;/p&gt;
+<p>经验比较丰富的开发者可以通过 <a href="http://www.rubyist.net/~slagell/ruby/">Ruby User&#8217;s Guide</a> [注1] 快速入门 Ruby，之后应该准备一本 <a href="http://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a> 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 <a href="http://ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby</a> 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，<a href="http://www.china-pub.com/195252">Ruby Programming: 向Ruby之父学程序设计</a> 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。</p>
 
-&lt;h2&gt;Rails&lt;/h2&gt;
+<h2>Rails</h2>
 
-&lt;p&gt;同样，有经验的开发者可以直接通过 &lt;a href=&quot;http://guides.rubyonrails.org/&quot;&gt;Ruby on Rails Guides&lt;/a&gt; 入门 Rails。而 &lt;a href=&quot;http://pragprog.com/titles/rails4/agile-web-development-with-rails&quot;&gt;Agile Web Development with Rails&lt;/a&gt; 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。&lt;/p&gt;
+<p>同样，有经验的开发者可以直接通过 <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> 入门 Rails。而 <a href="http://pragprog.com/titles/rails4/agile-web-development-with-rails">Agile Web Development with Rails</a> 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。</p>
 
-&lt;h2&gt;中文资料&lt;/h2&gt;
+<h2>中文资料</h2>
 
-&lt;p&gt;&lt;a href=&quot;http://twitter.com/ihower&quot;&gt;@ihower&lt;/a&gt; 组织的 &lt;a href=&quot;http://ruby.tw&quot;&gt;Ruby Taiwan&lt;/a&gt; 社区有提供 &lt;a href=&quot;http://guides.ruby.tw/ruby/&quot;&gt;Ruby User&amp;#8217;s Guide&lt;/a&gt; 的繁体中文翻译以及 &lt;a href=&quot;http://guides.ruby.tw/rails3/&quot;&gt;Ruby on Rails Guides&lt;/a&gt; 前两章的繁体中文翻译。&lt;a href=&quot;http://twitter.com/ihower&quot;&gt;@ihower&lt;/a&gt; 自己编写的 &lt;a href=&quot;http://ihower.tw/rails3/&quot;&gt;Ruby on Rails 實戰手冊&lt;/a&gt; 也是一部很不错的面向有一定经验开发者的在线书籍。&lt;/p&gt;
+<p><a href="http://twitter.com/ihower">@ihower</a> 组织的 <a href="http://ruby.tw">Ruby Taiwan</a> 社区有提供 <a href="http://guides.ruby.tw/ruby/">Ruby User&#8217;s Guide</a> 的繁体中文翻译以及 <a href="http://guides.ruby.tw/rails3/">Ruby on Rails Guides</a> 前两章的繁体中文翻译。<a href="http://twitter.com/ihower">@ihower</a> 自己编写的 <a href="http://ihower.tw/rails3/">Ruby on Rails 實戰手冊</a> 也是一部很不错的面向有一定经验开发者的在线书籍。</p>
 
-&lt;h2&gt;其它&lt;/h2&gt;
+<h2>其它</h2>
 
-&lt;p&gt;Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 &lt;a href=&quot;https://github.com/bbatsov/ruby-style-guide&quot;&gt;Ruby Style Guide&lt;/a&gt;。&lt;/p&gt;
+<p>Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 <a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a>。</p>
 
-&lt;p&gt;真正开始使用 Ruby on Rails 之后，&lt;a href=&quot;http://www.railsapi.com/&quot;&gt;Rails Searchable API Doc&lt;/a&gt; 和 &lt;a href=&quot;http://rdoc.info/&quot;&gt;RubyDoc.info&lt;/a&gt; 一定会是最常用的两个在线文档服务。&lt;/p&gt;
+<p>真正开始使用 Ruby on Rails 之后，<a href="http://www.railsapi.com/">Rails Searchable API Doc</a> 和 <a href="http://rdoc.info/">RubyDoc.info</a> 一定会是最常用的两个在线文档服务。</p>
 
-&lt;p&gt;注1: Ruby User&amp;#8217;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.8.7。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 &lt;a href=&quot;https://github.com/janlelis/irbtools&quot;&gt;irbtools&lt;/a&gt; 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。&lt;/p&gt;
-</content>
+<p>注1: Ruby User&#8217;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.8.7。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 <a href="https://github.com/janlelis/irbtools">irbtools</a> 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。</p>
+]]></content>
   </entry>
   
 </feed>
