@@ -25,4 +25,4 @@ Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 co
 
 真正开始使用 Ruby on Rails 之后，[Rails Searchable API Doc](http://www.railsapi.com/) 和 [RubyDoc.info](http://rdoc.info/) 一定会是最常用的两个在线文档服务。
 
-注1: Ruby User's Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.8.7。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 [irbtools](https://github.com/janlelis/irbtools) 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。
+注1: Ruby User's Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.9.3，[1.8 系列已经进入其生命的最后阶段](http://www.ruby-lang.org/en/news/2011/10/06/plans-for-1-8-7/)。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 [irbtools](https://github.com/janlelis/irbtools) 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。
