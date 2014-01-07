@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: capybara-webkit | Reincarnation]]></title>
+  <link href="http://rainux.github.io/categories/capybara-webkit/atom.xml" rel="self"/>
+  <link href="http://rainux.github.io/"/>
+  <updated>2014-01-07T17:29:56+08:00</updated>
+  <id>http://rainux.github.io/</id>
+  <author>
+    <name><![CDATA[Rainux Luo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX]]></title>
+    <link href="http://rainux.github.io/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
+    <updated>2011-07-23T20:09:00+08:00</updated>
+    <id>http://rainux.github.io/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
+    <content type="html"><![CDATA[<ul>
+<li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&rsquo;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
+</ul>
+
+
+<p><code>ruby Gemfile
+gem 'capybara-webkit', '&gt;= 1.0.0.beta4'
+</code></p>
+
+<ul>
+<li>Set Javascript driver to <code>:webkit</code> for Capybara in <code>spec_helper.rb</code>.</li>
+</ul>
+
+
+<p><code>ruby spec_helper.rb
+Capybara.javascript_driver = :webkit
+</code></p>
+
+<ul>
+<li><p>Configure RSpec use non-transactional fixtures, configure <a href="https://github.com/bmabey/database_cleaner">Database Cleaner</a> in <code>spec_helper.rb</code>.</p>
+
+<p>Notice with this setup, we&rsquo;ll only use truncation strategy when driver is not <code>:rack_test</code>. this will make normal specs run faster.</p></li>
+</ul>
+
+
+<p>``` ruby spec_helper.rb
+config.use_transactional_fixtures = false</p>
+
+<p>config.before :each do
+  if Capybara.current_driver == :rack_test</p>
+
+<pre><code>DatabaseCleaner.strategy = :transaction
+DatabaseCleaner.start
+</code></pre>
+
+<p>  else</p>
+
+<pre><code>DatabaseCleaner.strategy = :truncation
+</code></pre>
+
+<p>  end
+end</p>
+
+<p>config.after :each do
+  DatabaseCleaner.clean
+end
+```</p>
+
+<ul>
+<li>Tag your scenarios in <code>spec/acceptance/*_spec.rb</code> to use Javascript driver if necessary.</li>
+</ul>
+
+
+<p><code>ruby some_spec.rb
+scenario 'Create a lolita via AJAX', :js =&gt; true do
+end
+</code></p>
+
+<ul>
+<li><p>Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.</p>
+
+<p>For example if you have a simple AJAX form, the <code>success</code> callback will simply redirect browser to another page via <code>location.href = '/yet_another_page';</code>. You can use the following code to wait for it done.</p></li>
+</ul>
+
+
+<p>``` ruby another_spec.rb
+scenario &lsquo;Create a lolita via AJAX&rsquo;, :js => true do
+  visit new_lolita_path</p>
+
+<p>  click_on &lsquo;Submit&rsquo;</p>
+
+<p>  wait_until { page.current_path == lolita_path(Lolita.last) }</p>
+
+<p>  # Your expections for the new page
+end
+```</p>
+]]></content>
+  </entry>
+  
+</feed>
