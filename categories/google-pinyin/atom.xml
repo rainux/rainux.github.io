@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: google pinyin | Reincarnation]]></title>
+  <link href="http://rainux.github.io/categories/google-pinyin/atom.xml" rel="self"/>
+  <link href="http://rainux.github.io/"/>
+  <updated>2016-02-21T07:28:51+08:00</updated>
+  <id>http://rainux.github.io/</id>
+  <author>
+    <name><![CDATA[Rainux Luo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Google 拼音输入法 Android 版 MOD v3]]></title>
+    <link href="http://rainux.github.io/2011/02/03/google-pinyin-ime-for-android-mod-v3/"/>
+    <updated>2011-02-03T14:44:00+08:00</updated>
+    <id>http://rainux.github.io/2011/02/03/google-pinyin-ime-for-android-mod-v3</id>
+    <content type="html"><![CDATA[<p>前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。</p>
+
+<p>懒得另外写说明了，直接引用 <a href="https://github.com/rainux/com.google.android.inputmethod.pinyin">GitHub repo</a> 里的 README 吧。</p>
+
+<h2>目的</h2>
+
+<p>使用 <a href="http://code.google.com/p/android-apktool/">apktool</a> 对 Google 拼音输入法 Android 版进行反向工程[注1]，在 Dalvik JVM 汇编层级微调修改它，使其更适合日常使用。</p>
+
+<p>注1：实际上不是真正完整的反向工程，后来有大量借助 <a href="http://source.android.com/">Android Open Source Project</a> 中 Google 拼音输入法 1.0.0 的 Java 源代码理解反汇编得到的 smali 代码。</p>
+
+<h2>问题修正</h2>
+
+<ul>
+<li>中文模式下硬件键盘上某些标点符号没有被正确映射为中文（全角）形态，尤其是在 T-Mobile G2 上。</li>
+<li>中文模式下在软键盘未初始化时使用硬件键盘 Enter 键会导致 Google 拼音崩溃。</li>
+<li>中文模式下软键盘上的圆括号不是中文（全角）形态。</li>
+<li>软键盘上的 &amp; 和 &lt; 符号被不正确地转义成了 &amp;amp; 和 &amp;lt;。（MOD 版引入的问题。）</li>
+<li>中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）</li>
+</ul>
+
+
+<h2>细节改进</h2>
+
+<ul>
+<li>中文模式空闲和联想状态下 Alt + Del 像系统默认行为一样删除当前行。</li>
+<li>中文模式选字状态下 Alt + Del 删除所有拼音字符并回到空闲状态。</li>
+<li>中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）</li>
+<li>中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。</li>
+</ul>
+
+
+<h2>如何使用</h2>
+
+<p>下载 <a href="https://github.com/downloads/rainux/com.google.android.inputmethod.pinyin/Google_Pinyin_IME_v1.3.4_MOD_v3.apk">Google 拼音输入法 1.3.4 MOD v3</a>，使用 adb 工具或 Android 的 Package Manager 安装。或者 git clone 此 smali 源代码仓库自己用 apktool 编译生成 .apk 文件。</p>
+
+<p>注意：<strong>安装 MOD 版本之前必须先卸载官方版本，这是因为 MOD 版本签名所使用的证书不可能与官方版本一致。</strong></p>
+
+<h2>感谢</h2>
+
+<ul>
+<li>@<a href="http://twitter.com/pipitu">pipitu</a>: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

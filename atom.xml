@@ -1,0 +1,767 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Reincarnation]]></title>
+  <link href="http://rainux.github.io/atom.xml" rel="self"/>
+  <link href="http://rainux.github.io/"/>
+  <updated>2016-02-21T07:28:51+08:00</updated>
+  <id>http://rainux.github.io/</id>
+  <author>
+    <name><![CDATA[Rainux Luo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[从白金到大师——星际争霸II群殴进阶指南]]></title>
+    <link href="http://rainux.github.io/2014/05/24/from-platinum-to-master-starcraft-ii-nvn-advanced-guide/"/>
+    <updated>2014-05-24T01:53:00+08:00</updated>
+    <id>http://rainux.github.io/2014/05/24/from-platinum-to-master-starcraft-ii-nvn-advanced-guide</id>
+    <content type="html"><![CDATA[<p>这是一篇主要以我的随机种族随机团队 2v2/3v3 经验为基础，面向中级玩家（大致黄金组排名靠前到钻石组排名靠后实力范围）的进阶指南。标题正是我自己的经历，从 2010 年时 public beta 的白金组一路走来杀入大师组（美服/国服大师组排名靠前，韩服大师组排名靠后）。初级玩家也可以从中受益，但对于他们来说更重要的是：熟悉所有单位基本属性、技能；熟悉基本的常见战术与单位组合；提高 APM 到不会经常出现操作不过来的程度；以及在整场游戏中尽可能保持平和冷静的心理。</p>
+
+<p>高级玩家欢迎在评论中一起交流。</p>
+
+<h2>前期准备</h2>
+
+<ul>
+<li>一块手感良好的键盘（最好是机械键盘）和移动定位精准的游戏鼠标是必须的。欲善其事，先利其器。</li>
+<li>用工具把 Caps Lock 键改成 Left Ctrl，稍微练习一下你会发现编队操作容易了很多，左手小指乃至整个左手也更不容易疲劳。一旦你习惯这个设定，日常使用各种快捷键也会更舒适快捷。（你可能会问没有 Caps Lock 如何输入大写字母，答案是使用 Shift。Caps Lock 只有在连续输入大量大写字母时才有意义，而这种需求在实际工作生活中几乎没有。）</li>
+<li>APM 很重要，但仅仅“快”并不对，重要的是“有效率”并且快。APM 只是衡量你“有效率的操作”的一个指标，并不是练习的目的。多想想如何善用键盘和编队操作提高操作效率。</li>
+<li>整场游戏从头到尾一直保持平和的心态和冷静的头脑非常重要，这让你能理智面对各种突发事件，甚至对手的无礼挑衅。虽然良好的心理素质需要通过较长时间的练习，随着经验变得丰富实力得到增强而逐渐获得，不可能一蹴而就，但随时提醒自己保持冷静也是非常重要的练习方式。</li>
+<li>对抗从游戏加载界面出现就已经开始了。在游戏加载这段时间内你可以根据双方种族状况和地图情报迅速选择开局战术和发展策略。同时注意不要因为对手 1v1 组别过高而有心理压力，甚至提前放弃游戏。我经常和 1v1 只有白金甚至黄金水平的盟友一起击败超级大师。能遇到他们说明 Battle.net 认为你有足够的实力与他们对抗。</li>
+<li>没有亲眼看到 100% 无解不要退出游戏。即便你丢失了所有的单位和建筑，你还可以请求盟友共享控制，帮他操作前线或小股骚扰部队，同时将注意力放在侦查和下一步策略思考上。</li>
+<li>在对手明显占据巨大优势的情况下你有两个选择，果断放弃或坚持到底。后者可以让你学习/练习如何在逆境中战斗。适应巨大压力下的战斗，实际上是很好的练习提高方式。</li>
+</ul>
+
+
+<h2>风格/思想</h2>
+
+<p>相比 1v1 对个人实力的全方位考验，群殴中对游戏的理解和大局观更为重要，一些运营和操作上的小错误通常不那么容易导致崩盘，微操的不足也可以通过团队配合来弥补。所以作为慢手意识流，我更喜欢群殴。也因为以上这些对群殴的理解，加上我自己求稳的性格因素，我的群殴风格是骚扰＋防守运营型。以良好的运营、意识和侦查来应对和化解对手的各种进攻，以高机动性或骚扰专用科技单位持续骚扰对手，同时发展壮大自己，最后以强大的经济实力和高科技混编部队碾轧对手。相对来说，我觉得这样的策略比进攻型，或是极限一波流战术更可靠更有乐趣。主动进攻方对运营和操作要求都更严格更追求极限，容错性更低，并且进攻前的准备流程相对固定死板；而防守方在防住对手攻势的情况下可以有很多自由的选择。</p>
+
+<ul>
+<li>总想着一波打死对手很天真，甚至可以说是愚蠢。你的对手不是白痴，他们都是跟你一样的人类，不管操作还是暴兵都不会跟你有巨大差距。而且星际2是一个平衡性很好的游戏，在侦查和处理得当的情况下真正拥有钻石/大师组排名靠前水平的玩家完全有能力防守住任何极限 rush。任何时候都应该为持久战做准备。</li>
+<li>一个有趣的现象是超级大师不会打群殴。我经常注意到有超级大师的一方反而被只有黄金/白金水平的另一方击败。原因主要在于他们对自己的爆兵/微操等实力过于自信，总想速战速决靠中初级兵种打死对手。而他们的盟友通常不具有足够的实力跟上他们的节奏，结果导致配合糟糕的 rush 被对方良好的配合防守住，从而在运营和科技上落后。</li>
+<li>自伤运营/科技的极限 rush 被防守住后对方科技流反打会让你的部队一直处于被碾压状态，没有人会喜欢这种感觉。</li>
+<li>优势是通过运营、骚扰、开战逐渐积累出来的，积累到一定程度才能成为胜势。</li>
+<li>保持不停生产农民和部队是中初级玩家必须掌握的基本功。但后掌握基本功之后就应该注重对经济、科技和部队的合理控制调配，最大化它们的作用，而不是无脑傻暴兵。</li>
+</ul>
+
+
+<h2>军规</h2>
+
+<ul>
+<li>群殴的第一军规是绝对不能单独行动与对手交战，因为你随时可能被对手几家兵力包抄围剿。机动性超高有随时脱离战场能力的骚扰型部队除外。（例如提速狗、飞龙、凤凰、火车等。闪烁追猎脱离战场能力不算很强，要特别注意。）</li>
+<li>己方部队应该尽量保持不要离太远，盟友援军没有赶到时避免开战，即便会因此放弃重要矿区。</li>
+<li>开局堵口可以避免很多问题，例如虫族溜提速狗、人族溜火车、神族溜隐刀等。除极特殊的情况外开局必须堵口。</li>
+<li>防守很重要，但不是龟缩在家里不出门。中期矿区至少应该有一个防空防对手的各种骚扰，它的作用不是化解或避免骚扰，而是为对手的骚扰制造一点障碍，赢得部队回防的时间。</li>
+<li>固定时间点拥有反隐和对空能力非常重要。所有种族都应该确保在游戏时间六分钟时拥有这个能力。</li>
+<li>攻防升级很重要，所有职业选手都会升级攻防。你付出的代价只是少出一两个兵，完全不会有防守问题，回报则是所有地面或空中部队永久的战斗力提升。</li>
+</ul>
+
+
+<h2>侦查</h2>
+
+<p>知己知彼，百战不殆。侦查必须是贯通整场游戏对抗的重要工作。只有及时准确侦查出对手的经济、兵力、科技状况，你才能对局势做出正确的判断，采取行动进行可靠的应对。对于中级玩家来说，只依靠少量侦查信息对局势和未来发展进行预判的能力还比较弱，更应该频繁侦查。一个提醒自己进行侦查的简单办法是，随时问自己“对手在做什么”，如果无法回答，立即派出少量或所有高机动性单位通过侦查或火力侦察获得答案。</p>
+
+<p>开局 9 人口时派出农民侦查非常重要。这个时间点的侦查（加上开局堵口）可以让你有时间为应对各种极限 rush，以及这些极限 rush 的组合做出准备，包括但不限于：</p>
+
+<ul>
+<li>野兵营</li>
+<li>Cannon rush</li>
+<li>6/7/8/9/10D</li>
+</ul>
+
+
+<p>同时还可以侦查出对手的种族组合，以及对手的开局信息方便你使用不同开局：</p>
+
+<ul>
+<li>对 T 来说可以根据对手种族组合选择生化、半机械化或机械化开局。</li>
+<li>对 Z 来说可以根据对手 Z 数量和孵化池建造时间点决定是否裸双甚至裸三（对手只有 PT 的情况）。</li>
+<li>对 P 来说可以决定 BG 之后是否接 BF 进行骚扰式的 cannon rush。</li>
+</ul>
+
+
+<p>因为自己是随机，为了避免暴露自己种族而不第一时间侦查，这种想法是非常愚蠢的。只要对手第一时间侦查，你就立即在侦查上处于劣势。</p>
+
+<p>中初级虫族玩家通常没有 9 人口时侦查的习惯，他们认为自己有领主可以侦查。但几乎在所有地图上领主都无法像农民那样第一时间侦查到对手状况。另一些玩家认为侦查应该是造建筑不占用/消耗农民的神族玩家的本职，这种想法也很愚蠢。群殴的时候花时间叫盟友，尤其是中初级盟友去侦查，对方可能会反应慢/不按时派出农民，与其费力反而错失良机，不如自己主动派出农民，不管你是什么种族。</p>
+
+<h2>运营</h2>
+
+<p>在我还比较菜的时候，国服上一位朋友妖瞳曾经对我说“运营？造满两百个农民你就赢了！”这虽然是一句玩笑话，但也足以说明农民数量在中初级玩家中的重要性。</p>
+
+<p>对于中初级玩家来说，首先要通过大量练习确保自己有能力从开局到中期保持基地不停生产农民，直到三矿满负荷运作。为什么是三片矿？职业玩家的实践显示农民的最大数量应该控制 70 左右，过少会导致没有足够的收入支持暴兵，过多则会导致部队战斗力不够。70 农民是什么概念呢？几乎正好是三片矿水晶最优化采集＋瓦斯最大化采集的农民数量。所以“三片矿同时运作”在星际2里是中后期运营状况的标杆，低于它你应该知道自己经济状况不容乐观。你应该随时注意自己的矿区消耗程度，在它耗尽以前开出新的分矿。同时时刻关注对手矿区数量，并且尽力阻止他们开出新分矿。</p>
+
+<p>也有一种“偷”的想法是在中期开出四五片矿用更多的农民采集出资源优势，再把它们消耗掉。这个想法最早大概来自韩国职业选手 NesTea，他的具体做法是采出资源优势后把多余的农民插成管子强化防御。PT 也可以这么做，但对于 T 来说中期积累星轨控制中心数量更重要，后期可以直接大量扔矿骡保证你有绝对的资源采集优势。T 甚至可以在大后期送掉大部分农民，只留下少量采气，采矿完全靠矿骡。送掉农民空出来的人口可以转化成很可观的部队数量优势。</p>
+
+<p>你可以从开局起保持生产农民，但在新的矿区开出后一定要立即把农民分过去，保持每片矿区最多 16 个农民采矿 6 个农民采气。这是最优化的选择。</p>
+
+<h2>局势/判断/策略</h2>
+
+<ul>
+<li>不要一种单位打到底，随时想着科技转型。因为你的对手很快就会拥有克制你的科技。</li>
+<li>骚扰型单位无法应对正面战场。比如虫族的龙狗组合无法应对群殴中多种族混编部队的推进，即便有毒爆也不行。必须在骚扰的同时尽快转型蟑螂刺蛇腐化之类可以打正面的兵种组合，或者更高科技的兵种组合。</li>
+<li>科技速度是重要度仅次于经济的东西，在你需要极限 rush 的时候甚至比经济更重要。星际1的前辈 XD=Love 大师曾说过，“什么都可以慢，唯独科技不能慢。”运营型开局也需要在保持不影响农民生产的情况下，第一时间建造科技建筑或研究科技单位技能。中后期一旦没有防守压力就应该立即开始建造下一个科技建筑，不管你当前是否需要它。这是中后期保证自己有能力快速进行科技部队转型的最好办法。</li>
+</ul>
+
+
+<h2>种族优势</h2>
+
+<h3>Zerg 虫族</h3>
+
+<p>虫族的种族优势一直是繁殖快扩张能力强。星际2里由于女皇的产卵技能加入，更是大幅度增强了这个优势（想想三矿建造完成的同时就可以立即刷 16 个农民让它瞬间满负荷运作）。然而扩张强的同时虫族的资源消耗量也巨大，三族中只有虫族的 AoE 单位毒爆是纯粹的砸钱，如同乾坤一掷或七伤拳一般杀敌一千自伤八百，甚至一千五。而群殴地图通常没有足够的矿区让虫族舒服开出四矿五矿，所以虫族在群殴中打中后期实际上是略有劣势的。资源控制对于群殴中的虫族选手来说尤为重要。</p>
+
+<p>虫族的另一种族优势是高机动性的部队——地面有提速狗，空中有飞龙。群殴中对手基地数量成倍增加，骚扰的目标和效果也成倍提高。因此虫族在群殴中应该主动承担骚扰和火力侦察的任务。这也是我用虫族几乎只选择龙狗毒爆科技路线开局的原因。但需要注意的是龙狗毒爆的组合无法应对对手正面很强的特定组合，比如混编了人族火车侠雷神的部队。需要留意对手科技动向，适时转型蟑螂扛正面。</p>
+
+<h3>Protoss 神族</h3>
+
+<p>神族的种族优势毋庸置疑是高科技。神族的两大 AoE 单位巨像和圣堂武士在敌方单位数量成倍增加的群殴中更是效能卓越。因此神族在群殴中的角色应该是专门提供 AoE。如果一个神族玩家在群殴时不出巨像，那么他不是一个合格的神族盟友。需要注意的是，由于圣堂武士的能量限制和本身的脆弱性，他们不具备打持久战能力。所以 AoE 单位主力仍然是巨像。虽然可以选择圣堂武士科技路线开局以尽早获得 AoE 能力，但之后必须尽快转型巨像。因为在空军面前的巨像十分脆弱，所以开始爆巨像以后制空权非常重要。不但神族自己需要出凤凰制空（后期加入虚空），盟友的 TZ 也应该根据情况出维京和腐化协助制空。</p>
+
+<p>超时空加速是神族科技优势的另一个重要体现。超时空加速可以让神族更快获得巨像这样的高科技单位，让神族部队更快完成攻防升级从而在中期和不太晚的后期都拥有攻防优势。合理分配并尽可能耗尽所有的超时空加速是一个神族玩家进阶的必备技能。</p>
+
+<h3>Terran 人族</h3>
+
+<p>由于我的人族实力相对比较弱，对它的理解可能不够到位甚至有错误。</p>
+
+<p>相对来说，人族是一个运营和科技比较平衡的种族——运营有矿骡，科技有兴奋剂和医疗运输机。人族带兴奋剂和医疗运输机的生化部队打正面非常强大，以至于根本不需要 AoE 也能跟对手抗衡。而另一边虫族必须要有毒爆，神族必须要有巨像/圣堂武士或白球才能跟生化人族打正面。人族部队和科技的低成本，导致的一个有意思结果是生化部队人族打残局很强。经常后期大家都弹尽粮绝了，人族靠存钱或远程采矿出少量生化部队到处空投就能控制战局。</p>
+
+<h2>种族组合</h2>
+
+<h3>单一种族</h3>
+
+<p>对中级玩家来说在群殴中只拥有单一种族的一方通常具有一些劣势，最典型的例子是 ZZ 对 PT。两家 Z 都需要防守来自 PT 的不同科技 rush，对方则只需要针对一个种族的弱点。避免劣势的根本要诀在于，几家应该选择不同的科技路线，提高应对对手不同战术和兵种组合的能力。比如 2Z 可以一家龙狗一家蟑螂开局，龙狗可以转毒爆或大龙，蟑螂则可以转虫群宿主和感染虫。</p>
+
+<h2>TZ 组合</h2>
+
+<p>在对手无法第一时间完全堵死路口的地图上，TZ 组合大概是最强的 2v2 组合。这个组合可以使用 8D＋火车开局，8D 的 Z 甚至有能力阻止对手堵口，牵制或压制对手的 Z 更是毫无问题。在 Z 向对手持续施加压力的同时 T 使用标准机械化开局第一时间双倍或三倍出火车并升级蓝火，形成提速狗＋火车的组合。只要稍微注意操作和选择正确的打击点，这个英文称 helling 的组合在初期几乎无敌。</p>
+
+<h2>单位</h2>
+
+<p>星际2的单位设计总体来说很不错，几乎没有一代神族侦察机那样的纯废材兵种。三族的纯对空空军实际上都有，或者都有潜在的对地能力——维京可以降落地面；凤凰可以把地面单位抬起来打（事实上因为这个能力，凤凰群是非常优秀的骚扰部队）；腐化可以变成对地的终极单位巢虫领主。</p>
+
+<h3>Stalker 追猎者</h3>
+
+<p>在群殴中，多数时候追猎是一个废材兵种。从中期开始，三族的基础单位提速狗、提速叉、带兴奋剂的枪兵掠夺都完克它。闪烁科技并不能改变这个状况。只有在早期比较极限的压制，或者使用闪烁追猎战术开局，它才变得强大。</p>
+
+<h3>Hydralisk 刺蛇</h3>
+
+<p>同样多数时候是一个比较废的兵种。ZvZ 的对拼中既怕毒爆，又拼不过蟑螂。ZvP 只要对方有四个或以上的巨像爆刺蛇就只有哭的份。对空吧，没有相当的数量和攻防其实是拼不过飞龙的。虽然完克虚空，但实战也会受到地形限制，还要担心对手转巨像。刺蛇唯一的重要作用大概是用来对抗神族的三不朽战术。所以群殴中我几乎不会主动出刺蛇，除非有十足的把握知道对手爆了纯虚空而我出飞龙打不过。</p>
+
+<h3>Immortal 不朽者</h3>
+
+<p>不朽是一个辅助型单位，它应该是神族终极组合的重要组成部分。但在拥有足够的 AoE 和对空火力之前，不应该出太多没有对空能力且被最初级单位克的不朽。三不朽战术开局是一个例外，因为有大量哨兵释放力场保护不朽。</p>
+
+<h2>单位相克/对抗</h2>
+
+<p>星际2的设计虽然相比一代强化了单位相克的效果，但仍然保留了数量制胜，组合为王的基本原则。典型例子：火车克狗，但一两个火车操作再好也难敌二三十只提速狗包夹。巨像克狗，但落单的巨像仍然能轻易被二三十只狗围死。所以在找对正确的克敌兵种之后，数量也一定不能落后太多，并且需要更多考虑对手的兵种组合情况。</p>
+
+<h3>尽量使用空军对抗对手的空军</h3>
+
+<p>地面部队对抗空军虽然可能有火力上的优势，但机动性是远不如空军的。使用地面部队对抗空军如果没有办法第一时间出门正面进攻对手基地，那么结果几乎一定是一直被骚扰牵制，丧失对地图的控制，从而从运营上落后对方。</p>
+
+<h3>用飞龙和凤凰对抗虚空舰</h3>
+
+<p>因为能对空对地，而且有对重甲的伤害加成能力，Void Ray 虚空舰是一个广受欢迎的神族单位，中初级的群殴中经常能遇到对手爆大量虚空。对于中初级玩家来说，最怕这种打法的是神族，神族的地面对空火力是三族中最弱的——追猎射速慢也没兴奋剂可以加速。而且虚空的棱镜校准技能恰好对重甲的追猎有伤害加成，追猎数量没有较大优势其实是拼不过虚空的。飞龙和凤凰都是轻甲单位，跟虚空开战可以直接避免棱镜校准的影响。而且它们都比虚空便宜很多，建造速度也快很多，运营上不会吃亏。</p>
+
+<p>要注意对手的兵种配合与转型：如果对手使用执政官/雷神＋虚空，那么一定不能使用纯飞龙/凤凰应对。这种情况视对手的单位组合比例，应该更多投入资源到地面对空单位上。比如神族以执政官为主力，虫族以刺蛇为主力。避免自己的空军被对方地面单位克制。</p>
+
+<h3>用腐化飞虫、虚空舰和维京对抗风暴战舰</h3>
+
+<p>腐化对巨型单位伤害加成，虚空和维京都对重甲单位伤害加成。风暴战舰由于射程超远，用地面单位去对抗会非常被动，应该尽量避免。</p>
+
+<h3>用白球提速叉对抗不朽追猎</h3>
+
+<p>如果出不朽的一方还有巨像，己方可以有两个选择，追加巨像或者追加凤凰/风暴战舰对抗巨像。</p>
+
+<h3>用凤凰群或白球提速叉对抗凤凰群</h3>
+
+<p>暴凤凰开局的 P 一定会转型巨像，形成凤凰巨像提速叉的强大正面组合。对抗暴凤凰开局的 P 可以选择跟对方一样暴凤凰转凤凰巨像流。但如果凤凰数量开始落后，应该立即转型白球（执政官）提速叉组合，如果对手已经开始拥有巨像，必须加入不朽或风暴战舰。尽量手动控制不朽或风暴战舰点杀巨像。</p>
+
+<h2>其它</h2>
+
+<h3>刚开局盟友就退出游戏</h3>
+
+<p>如果是 2v2 的对抗遇到这样的情况，并且己方有一家虫族，那么你赢定了。为什么？因为你可以控制两家都开局不造农民，在很早的时间点建造孵化池并持续暴狗给予对手压力。事实上只要资源和幼虫调配得当，这么早暴出的大量提速狗一定可以直接打死一家对手，同时确保你比另一家有经济优势——两矿，农民数量也不落后。</p>
+
+<h2>后记</h2>
+
+<p>从年初开始打草稿，断断续续用了将近半年的时间来积累这篇文章，但其中一些部分的内容仍然不够。最近几乎都没什么时间玩，所以也更难提取出那些暂时封存在大脑深处的经验和想法。以后应该会持续补充和修订内容。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[你不是不喜欢古典音乐，只是还没开始喜欢它们]]></title>
+    <link href="http://rainux.github.io/2014/01/06/you-are-not-disliking-classical-music/"/>
+    <updated>2014-01-06T02:30:00+08:00</updated>
+    <id>http://rainux.github.io/2014/01/06/you-are-not-disliking-classical-music</id>
+    <content type="html"><![CDATA[<p>作为一个喜欢音乐的人，你肯定听说过<strong><a href="http://zh.wikipedia.org/wiki/%E5%8F%A4%E5%85%B8%E9%9F%B3%E4%B9%90">古典音乐</a></strong>的神奇之处——在被创作出来一两百年，甚至两三百年后的今天，它们还经久不衰，在一部分爱乐人中流行并在他们心中占据很高的地位。因此你也肯定尝试过主动去听古典音乐，但如果很不幸你跟以前的我一样提起古典音乐大脑中出现的关键词只有“贝多芬”，找到的曲目都是交响曲，那么很可能你会对古典音乐失望——完全不知道自己听的是什么东西，按照以前听流行乐的经验来说这样的音乐毫无美感可言。</p>
+
+<p>这并不是因为古典音乐过于“高雅”不能被“普通人”欣赏，也不是那些热爱古典音乐的爱乐人们装清高。单纯只是因为你和我一样，找错了入门曲目。一方面来说，<strong>古典音乐从直观听觉上跟我们听惯的流行音乐很不一样：流行音乐节奏鲜明旋律简单；多数古典音乐，尤其是交响曲和协奏曲节奏并不明显，而且旋律相对更复杂，通常我们的耳朵或者说听觉系统需要一段时间的入门“练习”才能适应它们。</strong>另一方面，有很多古典音乐的创作都有其特定的历史和作曲家个人特殊经历背景，作曲家通过它们希望表达的是各种不同的内涵，并不仅仅只是直观听觉上的美感。<strong>这样的音乐需要我们在有一定古典音乐适应性和背景知识（或者说，古典音乐素养）的基础上，坐下来集中注意力仔细聆听，才能理解深藏其内涵中的美。</strong>贝多芬的曲目正是典型例子（有兴趣可以去了解一下<strong><a href="http://zh.wikipedia.org/wiki/%E8%B7%AF%E5%BE%B7%E7%BB%B4%E5%B8%8C%C2%B7%E8%8C%83%C2%B7%E8%B4%9D%E5%A4%9A%E8%8A%AC">贝多芬</a></strong>的经历）。</p>
+
+<p>但<strong>这并不代表古典音乐都不注重听觉上的美感。恰恰相反，不同风格不同作曲家都有很多直观听觉上美感就非常突出的曲目，尤其是我非常喜欢的<a href="http://zh.wikipedia.org/wiki/%E5%B7%B4%E6%B4%9B%E5%85%8B%E9%9F%B3%E4%B9%90">巴洛克音乐</a>。</strong>这篇小文的目的正是尝试通过向朋友们推荐这些易于接受，适合入门的古典音乐曲目，改变大家对古典音乐的印象。希望我们可以一起享受代表着辉煌灿烂人类文明成就的美妙古典音乐。</p>
+
+<p>所选的曲目主要来自我自己亲自体验的结果。也就是那些在我对古典音乐还一无所知的时候，随便听听就会被吸引住注意力的曲目。为了行文方便，曲目的英文名都列在介绍文字后面。这些英文名只是跟我加在提供试听的<strong><a href="http://y.qq.com/#type=mymusic&amp;p=album_detail.html%3Fuin%3D3466469%26dirid%3D2%26nick%3D%2520%26pageuin%3D3466469">古典音乐入门</a></strong>列表中的曲名相同，并不一定标准。使用 QQ 音乐提供试听是为了方便墙内的朋友们，相对来说它的版权问题没那么严重。但是 <strong>QQ 音乐上的版本非常混乱，很多奇怪的版本完全是把优美的音乐变成了噪音。我已经尽力挑选，但多数还是不如我自己听的版本，建议有兴趣之后通过其它途径寻找更好的版本。</strong>我的途径是 Google Music 的 All Access 服务，每月 $10 就能无限听 Google Music 上所有的音乐，实现音乐正版化，很值得。</p>
+
+<p>让我们从一首你大概早已熟悉的<strong><a href="http://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E5%B8%95%E8%B5%AB%E8%B4%9D%E5%B0%94">帕海贝尔</a></strong>的 <strong><a href="http://zh.wikipedia.org/wiki/%E5%8D%A1%E8%BE%B2_%28%E5%B8%95%E6%B5%B7%E8%B2%9D%E7%88%BE%29">D 大调卡农</a></strong>开始吧——没错，这就是《我的野蛮女友》中他们认识100天纪念日时，全智贤在学校音乐厅弹那一段曲子。原版是三把小提琴加一把大提琴演奏的<a href="http://zh.wikipedia.org/wiki/%E5%BC%A6%E4%B9%90%E5%9B%9B%E9%87%8D%E5%A5%8F">弦乐四重奏</a>，相比钢琴版本更能表达此曲的缠绵悱恻。</p>
+
+<ul>
+<li>Pachelbel: Canon and Gigue in D major</li>
+</ul>
+
+
+<p>D 大调卡农的这种缠绵悱恻源自于它的<strong><a href="http://zh.wikipedia.org/zh-cn/%E8%A4%87%E9%9F%B3%E9%9F%B3%E6%A8%82">复调音乐</a></strong>特性。说到复调音乐不得不提<strong><a href="http://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E5%A1%9E%E5%B7%B4%E6%96%AF%E8%92%82%E5%AE%89%C2%B7%E5%B7%B4%E8%B5%AB">巴赫</a></strong>的 <strong>D 小调双小提琴协奏曲</strong>，它把缠绵悱恻的感觉发挥到了极致。<strong><a href="http://zh.wikipedia.org/wiki/%E5%8D%8F%E5%A5%8F%E6%9B%B2">协奏曲</a>是一件或数件独奏乐器与交响乐团协同演奏，既有对比又有相互交融的作品。相对于交响曲，协奏曲通常更易于被我们接受。协奏曲一般拥有三个乐章。</strong>这里选取的只是第二乐章，有兴趣可以自行搜索完整版本。</p>
+
+<ul>
+<li>Double Violin Concerto in D Minor, BWV 1043_ II. Largo</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E5%A1%9E%E5%B7%B4%E6%96%AF%E8%92%82%E5%AE%89%C2%B7%E5%B7%B4%E8%B5%AB">巴赫</a></strong>最有名的作品大概是 <strong>G 弦上的咏叹调</strong>。这首曲子实际上原版是 D 大调，后来被德国小提琴家威廉密改编降调，使得整个曲子可以只用小提琴的一根 G 弦演奏，大大增加了其神秘色彩。我自己也正是听过巴赫这两部弦乐作品后确定了对他风格的无比喜爱。</p>
+
+<ul>
+<li>Air - Orchestral Suite No. 3 in D major, BWV 1068.</li>
+<li>Air on a G string （正确写法应该是 Air on the G string，QQ 音乐的版本实在太混乱。）</li>
+</ul>
+
+
+<p>列表中还有三首<strong><a href="http://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%C2%B7%E5%A1%9E%E5%B7%B4%E6%96%AF%E8%92%82%E5%AE%89%C2%B7%E5%B7%B4%E8%B5%AB">巴赫</a></strong>的曲子也都非常优美。我如此喜欢巴赫绝非偶然，因为他是<strong><a href="http://zh.wikipedia.org/wiki/%E5%B7%B4%E6%B4%9B%E5%85%8B%E9%9F%B3%E4%B9%90">巴洛克音乐</a></strong>的集大成者。<strong>巴洛克音乐的特点是极尽奢华，加入大量装饰音的音符。节奏强烈、短促而律动，旋律精致。</strong>这些特征正好符合我审美取向中的其中一种。我也认为这些特征使得巴洛克音乐更易于被完全不了解古典音乐的普通大众接受。</p>
+
+<ul>
+<li>Bach/Gounod: Ave Maria</li>
+<li>Cantata No. 147, &lsquo;Herz und Mund und Tat und Leben&rsquo; BWV147: Choral: Jesu bleibet meine Freude (Jesu, joy of man&rsquo;s desiring)</li>
+<li>Concerto No.2 in F major BWV 1047 - 2. Andante</li>
+</ul>
+
+
+<p>再听过这三首出自巴洛克音乐的另外两位代表人物<strong><a href="http://zh.wikipedia.org/wiki/%E5%AE%89%E4%B8%9C%E5%B0%BC%E5%A5%A5%C2%B7%E7%BB%B4%E7%93%A6%E5%B0%94%E7%AC%AC">维瓦尔第</a></strong>和<strong><a href="http://zh.wikipedia.org/wiki/%E6%A0%BC%E5%A5%A5%E5%B0%94%E6%A0%BC%C2%B7%E5%BC%97%E9%87%8C%E5%BE%B7%E9%87%8C%E5%B8%8C%C2%B7%E4%BA%A8%E5%BE%B7%E5%B0%94">亨德尔</a></strong>的弦乐之后，你就会对什么是巴洛克音乐有很清楚的感性认识了。</p>
+
+<ul>
+<li>Vivaldi, Four Season - Spring - Allegro</li>
+<li>Solomon, HWV 67: The Arrival of the Queen of Sheba (from Four Weddings and a Funeral)</li>
+<li>Water Music</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E8%8E%AB%E6%89%8E%E7%89%B9">莫扎特</a></strong>的 <strong><a href="http://zh.wikipedia.org/wiki/%E7%AC%AC13%E5%8F%B7%E5%B0%8F%E5%A4%9C%E6%9B%B2_%28%E8%8E%AB%E6%89%8E%E7%89%B9%29">G 大调弦乐小夜曲</a></strong>也是一首<a href="http://zh.wikipedia.org/wiki/%E5%BC%A6%E4%B9%90%E5%9B%9B%E9%87%8D%E5%A5%8F">弦乐四重奏</a>，旋律应该大家都很熟悉，在无数地方出现过。事实上，滥俗改编版本的过度流传曾经严重劣化此曲在我心中的印象，听过原版数次才意识到其实这是一首非常庄严优美的曲子。所以听之前一定要忘记以前的负面印象，听其它旋律熟悉的古典音乐时也要注意这个问题。</p>
+
+<ul>
+<li>Serenade No. 13 in G Major, K. 525,</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E8%8E%AB%E6%89%8E%E7%89%B9">莫扎特</a></strong>的 <strong>C 大调第16号钢琴奏鸣曲</strong>，洋溢着欢快而干净的旋律是典型的莫扎特风格。</p>
+
+<ul>
+<li>Piano Sonata No. 16 In C Major Sonata Facile - I. Allegro</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E8%82%96%E9%82%A6">肖邦</a></strong>的<strong>降 E 大调夜曲</strong>是一首非常安静，很适合深夜或是睡前独自聆听的钢琴曲。它的直观听感非常符合我审美取向中的另一种，极简主义审美。</p>
+
+<ul>
+<li>Nocture in E flat major (Op. 9 no. 2)</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E5%AD%9F%E5%BE%B7%E7%88%BE%E9%A0%8C">门德尔松</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E7%84%A1%E8%A8%80%E6%AD%8C">无词歌</a></strong>中的<strong>春之歌</strong>，同样是一首很干净的钢琴曲。</p>
+
+<ul>
+<li>Mendelssohn Song Without Words in A, Op. 62 No. 6, &lsquo;Spring Song&rsquo;</li>
+</ul>
+
+
+<p>这首<strong><del>萌得耳松</del><a href="http://zh.wikipedia.org/wiki/%E5%AD%9F%E5%BE%B7%E7%88%BE%E9%A0%8C">门德尔松</a></strong>为莎士比亚的戏剧<strong><a href="http://zh.wikipedia.org/wiki/%E4%BB%B2%E5%A4%8F%E5%A4%9C%E4%B9%8B%E6%A2%A6">仲夏夜之梦</a></strong>所写的剧乐中的第8号作品，大概也是他现在流传最广的曲子——<strong><a href="http://zh.wikipedia.org/wiki/%E7%B5%90%E5%A9%9A%E9%80%B2%E8%A1%8C%E6%9B%B2_%28%E5%AD%9F%E5%BE%B7%E7%88%BE%E9%A0%8C%29">结婚进行曲</a></strong>。</p>
+
+<ul>
+<li>No.8 Wedding March</li>
+</ul>
+
+
+<p>另一首结婚进行曲<strong><a href="http://zh.wikipedia.org/wiki/%E5%A9%9A%E7%A4%BC%E5%90%88%E5%94%B1">婚礼合唱</a></strong>，出自<strong><a href="http://zh.wikipedia.org/wiki/%E7%90%86%E6%9F%A5%E5%BE%B7%C2%B7%E7%93%A6%E6%A0%BC%E7%BA%B3">瓦格纳</a></strong>的歌剧<strong><a href="http://zh.wikipedia.org/wiki/%E7%BD%97%E6%81%A9%E6%A0%BC%E6%9E%97">罗恩格林</a></strong>。传统上这首会在新人入场时播放，而上一首则是在离场时播放。</p>
+
+<ul>
+<li>Lohengrin, Act Iii Treulich Geführt Ziehet Dahin - Bridal Chorus</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E5%BC%97%E6%9C%97%E8%8C%A8%C2%B7%E6%9D%8E%E6%96%AF%E7%89%B9">李斯特</a></strong>的 <strong>E 大调安慰曲</strong>，干净的钢琴曲，真的有安慰心灵的感觉。</p>
+
+<ul>
+<li>Liszt Consolation in E Major, S.172, No.2</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E8%B7%AF%E5%BE%B7%E7%BB%B4%E5%B8%8C%C2%B7%E8%8C%83%C2%B7%E8%B4%9D%E5%A4%9A%E8%8A%AC">贝多芬</a></strong>的 <strong><a href="http://zh.wikipedia.org/wiki/%E7%AC%AC8%E9%92%A2%E7%90%B4%E5%A5%8F%E9%B8%A3%E6%9B%B2_%28%E8%B4%9D%E5%A4%9A%E8%8A%AC%29">C 小调第8号钢琴奏鸣曲</a></strong>，别名<strong>悲怆奏鸣曲</strong>。这是节选的第二乐章，柔和的旋律和轻微的低落情绪，很适合描述爱情某个必经阶段的状态。它也的确在恋爱影视中被使用较多。</p>
+
+<p>悲怆奏鸣曲第一和第三乐章有一个很有名的衍生作品 <strong>Beethoven Virus</strong> 及其二次衍生作品 <strong>V3</strong>。听过之后你会发现它们跟这里的第二乐章几乎完全没有关系，这是因为<strong>交响曲、协奏曲和奏鸣曲等曲式中最后一个乐章要跟第一乐章呼应，所以会有相同或相似的旋律，但第二乐章一般是舒缓的不同旋律。</strong>另外如果你是星际争霸一代玩家，那么一定不能错过这个 <strong><a href="https://dl.dropboxusercontent.com/u/3684228/Music/Beethoven%20Virus%20%28Starcraft%20mix%29.mp3">Beethoven Virus (Starcraft mix)</a></strong>。</p>
+
+<ul>
+<li>Sonata No. 8 in C Minor，Op. 13 &lsquo;Pathéique&rsquo;, II - Adagio cantabile</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E5%8D%A1%E7%B1%B3%E7%88%BE%C2%B7%E8%81%96%E6%A1%91">圣桑</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E5%8B%95%E7%89%A9%E7%8B%82%E6%AD%A1%E7%AF%80">动物狂欢节</a>组曲</strong>之<strong>天鹅</strong>。这是一支由一把大提琴和两架钢琴演奏的室内乐。<strong><a href="http://zh.wikipedia.org/wiki/%E5%AE%A4%E5%86%85%E4%B9%90">室内乐</a></strong>是所需乐器和乐队成员很少，不像交响曲需要大音乐厅，在普通室内就能演奏的音乐。前面提过的弦乐四重奏就是一种室内乐。它的旋律非常优雅，令人不得不惊叹作曲家运用音符表达动物气质的高超技巧。</p>
+
+<ul>
+<li>Le Carnaval Des Animaux (The Carnival Of The Animals): XIII. Le Cygne (The Swan)</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E7%BA%A6%E7%BF%B0%E5%86%85%E6%96%AF%C2%B7%E5%8B%83%E6%8B%89%E5%A7%86%E6%96%AF">勃拉姆斯</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E5%8C%88%E7%89%99%E5%88%A9%E8%88%9E%E6%9B%B2">匈牙利舞曲</a>第5号</strong>，其主旋律应该也是在很多地方出现过的。</p>
+
+<ul>
+<li>Hungarian Dance No 5 in G minor Schmeling</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E4%B9%94%E6%B2%BB%C2%B7%E6%AF%94%E6%89%8D">比才</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E9%98%BF%E8%8E%B1%E5%9F%8E%E7%9A%84%E5%A7%91%E5%A8%98">阿莱城的姑娘</a>第二组曲法兰多拉舞曲</strong>，非常欢快的曲子。</p>
+
+<ul>
+<li>L'Arlésienne - Suite No.2 Farandole</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E4%B9%94%E6%B2%BB%C2%B7%E6%AF%94%E6%89%8D">比才</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E5%8D%A1%E9%97%A8">卡门</a>第二组曲哈巴奈拉舞曲</strong>，这个旋律在无数地方出现过，大家应该都很熟悉。</p>
+
+<ul>
+<li>Carmen Suite No. 2: Habanera</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E5%BE%B7%E6%B2%83%E5%A4%8F%E5%85%8B">德沃夏克</a></strong>的<strong><a href="http://zh.wikipedia.org/zh/%E5%B9%BD%E9%BB%98%E6%9B%B2">幽默曲</a></strong>也是我早期就接触过的古典音乐曲目。我第一次听到的是劲乐团里的钢琴版本，后来被一个小提琴版本的演绎震撼，可惜 QQ 音乐上找不到这个版本。</p>
+
+<ul>
+<li>Dvorak Humoreske</li>
+</ul>
+
+
+<p>有了前面的基础，可以试试大型作品了。这首<strong><a href="http://zh.wikipedia.org/wiki/%E6%88%91%E7%9A%84%E7%A5%96%E5%9C%8B_%28%E5%8F%B2%E9%BA%A5%E5%A1%94%E7%B4%8D%29#.E4.BC.8F.E5.B0.94.E5.A1.94.E7.93.A6.E6.B2.B3">伏尔塔瓦河</a></strong>是捷克作曲家<strong><a href="http://zh.wikipedia.org/wiki/%E8%B4%9D%E5%A4%9A%E4%BC%8A%E9%BD%90%C2%B7%E6%96%AF%E7%BE%8E%E5%A1%94%E9%82%A3">斯美塔那</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E4%BA%A4%E5%93%8D%E8%AF%97">交响诗</a><a href="http://zh.wikipedia.org/wiki/%E6%88%91%E7%9A%84%E7%A5%96%E5%9C%8B_%28%E5%8F%B2%E9%BA%A5%E5%A1%94%E7%B4%8D%29">我的祖国</a></strong>的第二乐章。虽然到现在我也还不能理解它描绘的场景，但它的旋律的确非常优美，令人印象深刻。</p>
+
+<ul>
+<li>Smetana _ Ma Vlast - Vltava</li>
+</ul>
+
+
+<p><strong><a href="http://zh.wikipedia.org/wiki/%E8%8E%AB%E6%89%8E%E7%89%B9">莫扎特</a></strong>的<strong><a href="http://zh.wikipedia.org/wiki/%E7%AC%AC40%E8%99%9F%E4%BA%A4%E9%9F%BF%E6%9B%B2_%28%E8%8E%AB%E6%89%8E%E7%89%B9%29">第40号交响曲</a>第一乐章</strong>，S.H.E 的<strong>不想长大</strong>副歌部分旋律就出自它。</p>
+
+<ul>
+<li>Symphony No. 40 in G minor, KV 550 (First version without clarinets)</li>
+</ul>
+
+
+<p>最后两首特别的曲子，都是我先在喜欢的动画作品中听到的印象深刻的背景音乐，后来才发现其实是有名的古典音乐。</p>
+
+<p><strong>《冰果》背景音乐</strong></p>
+
+<ul>
+<li>Sicilienne, Op.78</li>
+</ul>
+
+
+<p><strong>《凉宫春日的消失》背景音乐</strong></p>
+
+<ul>
+<li>Gymnopédie No.1</li>
+</ul>
+
+
+<p>在我为这篇小文寻找资料的过程中，找到了一篇很全面的曲目推荐文章<strong><a href="http://music.douban.com/review/2943176/">怎样欣赏古典音乐</a></strong>。可以看出原作者的古典音乐素养很高，推荐作为延伸阅读。</p>
+
+<p><strong><a href="http://v.163.com/special/listeningtomusic/">耶鲁大学公开课：聆听音乐</a></strong>很适合作为进一步系统性提高古典音乐素养的资料，网易公开课这边的版本有中文字幕。虽然我自己才看过四课，但可以确定非常有意思。</p>
+
+<p>注1：本文的标题来自我不知何时在哪里看到的一篇帖子（也或者是生活中听某位朋友说起过），现在已经找不到来源。在我准备写这篇向朋友们分享介绍古典音乐的小文时这句话很自然地从大脑深处冒出来，除了它再也找不到更合适的标题。</p>
+
+<p>注2：关于乐曲英文名称：</p>
+
+<ul>
+<li>不像我们熟悉的流行音乐，很多古典音乐作品都没有表示内容主题的名字，而是使用其<strong><a href="http://zh.wikipedia.org/wiki/Category:%E6%A8%82%E6%9B%B2%E5%BD%A2%E5%BC%8F">乐曲形式</a></strong>和<strong><a href="http://zh.wikipedia.org/wiki/%E8%B0%83%E6%80%A7">调性</a></strong>命名。例如“Double Violin Concerto in D Minor”这个名字，其中“Concerto”是“协奏曲”，“D Minor” 是“D 小调”（大调是“Major”），合起来就是“D 小调双小提琴协奏曲”。</li>
+<li>名称中的“Op. xx”表示此曲是作曲家的第几部作品，“Op”是“opus”的缩写。</li>
+<li>名称中的“No. xx”表示此曲是作曲家本部作品中第几首曲子，或者是第几首同类型曲子。例如莫扎特的“Piano Sonata No. 16 In C”就是他的钢琴奏鸣曲作品中的第16号。</li>
+<li>名称中类似“BWV 1068”或“K. 525”这样字母加数字的组合是后人对作曲家作品整理时使用的统一编号方式。每首曲子的编号都是独一无二的，使用这些编号搜索查找想要的曲子更方便。</li>
+<li>名称中的“Adagio”、“Allegro”、“Andante”、“Largo” 等字样是演奏<strong><a href="http://zh.wikipedia.org/wiki/%E9%80%9F%E5%BA%A6_%28%E9%9F%B3%E6%A8%82%29#.E7.BE.A9.E5.A4.A7.E5.88.A9.E8.AA.9E.E9.80.9F.E5.BA.A6.E7.94.A8.E8.A9.9E">速度</a></strong>的名称。交响曲、协奏曲和奏鸣曲一般都分三到四个乐章，区分它们的方式可以是在名称中加上这些不同乐章独特的速度标记，或者代表乐章编号的罗马数字。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8]]></title>
+    <link href="http://rainux.github.io/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/"/>
+    <updated>2011-09-17T00:44:00+08:00</updated>
+    <id>http://rainux.github.io/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8</id>
+    <content type="html"><![CDATA[<h2>Use Xavier Shay&rsquo;s patched Ruby 1.9.3dev</h2>
+
+<p>There were <a href="http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html">two patches for Ruby 1.9</a> to resolve the load performance issue. Xavier Shay&rsquo;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.</p>
+
+<p>Use Xavier Shay&rsquo;s patch may not easy, here is a small trick to install his fork of Ruby with rvm:</p>
+
+<figure class='code'><figcaption><span>Shell commands</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/.rvm/repos
+</span><span class='line'><span class="nv">$ </span>git clone git://github.com/xaviershay/ruby.git ruby-head
+</span><span class='line'><span class="nv">$ </span>rvm install ruby-head --branch require-performance-fix
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ </span>rvm use ruby-head
+</span><span class='line'><span class="nv">$ </span>ruby --version
+</span><span class='line'>ruby 1.9.3dev <span class="o">(</span>2011-05-31 trunk 31827<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yeah, it will be installed as <code>ruby-head</code>.</p>
+
+<p>Note: Absolutely this should only be used in development environment, since it&rsquo;s a development version of Ruby 1.9.3.</p>
+
+<h3>Updated on Sep 28, 2011:</h3>
+
+<p>The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay&rsquo;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.</p>
+
+<h2>Tweak Gemfile to not require unnecessary gems immediately</h2>
+
+<p>Most gems in <code>development</code> and <code>test</code> group are unnecessary to be required immediately, gems for test can be required in <code>spec_helper.rb</code>. Here is part of my Gemfile for a small project:</p>
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;bond&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;irbtools&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;irb_rocket&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capistrano&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rails3-generators&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="c1"># Only used for mo/po file generation in development, see rake -T gettext.</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;gettext&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.9.3&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;awesome_print&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="s1">&#39;ap&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;factory_girl_rails&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capybara&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.3.6&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;launchy&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;cucumber-rails&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;spork&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.9.0.rc5&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 4.0.0.alpha4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable_activemodel&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 4.0.0.alpha4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable_mongoid&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;database_cleaner&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-bundler&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-spork&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-cucumber&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:linux</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rb-inotify&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;libnotify&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;therubyracer&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>How about the result?</h2>
+
+<p>My recent project using Xavier Shay&rsquo;s Ruby 1.9.3dev:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">time </span>rake about
+</span><span class='line'>/home/rainux/.rvm/gems/ruby-head/gems/activesupport-3.0.10/lib/active_support/dependencies.rb:239:in <span class="sb">`</span>block in require<span class="s1">&#39;: iconv will be deprecated in the future, use String#encode instead.</span>
+</span><span class='line'><span class="s1">About your application&#39;</span>s environment
+</span><span class='line'>Ruby version              1.9.3 <span class="o">(</span>x86_64-linux<span class="o">)</span>
+</span><span class='line'>RubyGems version          1.8.10
+</span><span class='line'>Rack version              1.2
+</span><span class='line'>Rails version             3.0.10
+</span><span class='line'>Action Pack version       3.0.10
+</span><span class='line'>Active Resource version   3.0.10
+</span><span class='line'>Action Mailer version     3.0.10
+</span><span class='line'>Active Support version    3.0.10
+</span><span class='line'>Middleware                ActionDispatch::Static, Rack::Lock, ActiveSupport::Cache::Strategy::LocalCache, Rack::Runtime, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::RemoteIp, Rack::Sendfile, ActionDispatch::Callbacks, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::MethodOverride, ActionDispatch::Head, ActionDispatch::BestStandardsSupport, Warden::Manager, Sass::Plugin::Rack, Rack::Mongoid::Middleware::IdentityMap, Barista::Filter, Barista::Server::Proxy
+</span><span class='line'>Application root          /home/rainux/devel/a_rails_app
+</span><span class='line'>Environment               development
+</span><span class='line'>rake about  5.15s user 0.35s system 99% cpu 5.501 total
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Compare to another project using Ruby 1.8.7 (actually, ree-1.8.7-2011.03), without tweak Gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">time </span>rake about
+</span><span class='line'>About your application<span class="err">&#39;</span>s environment
+</span><span class='line'>Ruby version              1.8.7 <span class="o">(</span>x86_64-linux<span class="o">)</span>
+</span><span class='line'>RubyGems version          1.6.2
+</span><span class='line'>Rack version              1.2
+</span><span class='line'>Rails version             3.0.9
+</span><span class='line'>Active Record version     3.0.9
+</span><span class='line'>Action Pack version       3.0.9
+</span><span class='line'>Active Resource version   3.0.9
+</span><span class='line'>Action Mailer version     3.0.9
+</span><span class='line'>Active Support version    3.0.9
+</span><span class='line'>Application root          /home/rainux/devel/yet_another_rails_app
+</span><span class='line'>Environment               development
+</span><span class='line'>rake about  3.65s user 0.92s system 99% cpu 4.585 total
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX]]></title>
+    <link href="http://rainux.github.io/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
+    <updated>2011-07-23T20:09:00+08:00</updated>
+    <id>http://rainux.github.io/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
+    <content type="html"><![CDATA[<ul>
+<li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&rsquo;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Set Javascript driver to <code>:webkit</code> for Capybara in <code>spec_helper.rb</code>.</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">javascript_driver</span> <span class="o">=</span> <span class="ss">:webkit</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>Configure RSpec use non-transactional fixtures, configure <a href="https://github.com/bmabey/database_cleaner">Database Cleaner</a> in <code>spec_helper.rb</code>.</p>
+
+<p>Notice with this setup, we&rsquo;ll only use truncation strategy when driver is not <code>:rack_test</code>. this will make normal specs run faster.</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">false</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">before</span> <span class="ss">:each</span> <span class="k">do</span>
+</span><span class='line'>  <span class="k">if</span> <span class="no">Capybara</span><span class="o">.</span><span class="n">current_driver</span> <span class="o">==</span> <span class="ss">:rack_test</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:transaction</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">start</span>
+</span><span class='line'>  <span class="k">else</span>
+</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:truncation</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">after</span> <span class="ss">:each</span> <span class="k">do</span>
+</span><span class='line'>  <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">clean</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Tag your scenarios in <code>spec/acceptance/*_spec.rb</code> to use Javascript driver if necessary.</li>
+</ul>
+
+
+<figure class='code'><figcaption><span>some_spec.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><p>Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.</p>
+
+<p>For example if you have a simple AJAX form, the <code>success</code> callback will simply redirect browser to another page via <code>location.href = '/yet_another_page';</code>. You can use the following code to wait for it done.</p></li>
+</ul>
+
+
+<figure class='code'><figcaption><span>another_spec.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">visit</span> <span class="n">new_lolita_path</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">click_on</span> <span class="s1">&#39;Submit&#39;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">wait_until</span> <span class="p">{</span> <span class="n">page</span><span class="o">.</span><span class="n">current_path</span> <span class="o">==</span> <span class="n">lolita_path</span><span class="p">(</span><span class="no">Lolita</span><span class="o">.</span><span class="n">last</span><span class="p">)</span> <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># Your expections for the new page</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google 拼音输入法 Android 版 MOD v3]]></title>
+    <link href="http://rainux.github.io/2011/02/03/google-pinyin-ime-for-android-mod-v3/"/>
+    <updated>2011-02-03T14:44:00+08:00</updated>
+    <id>http://rainux.github.io/2011/02/03/google-pinyin-ime-for-android-mod-v3</id>
+    <content type="html"><![CDATA[<p>前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。</p>
+
+<p>懒得另外写说明了，直接引用 <a href="https://github.com/rainux/com.google.android.inputmethod.pinyin">GitHub repo</a> 里的 README 吧。</p>
+
+<h2>目的</h2>
+
+<p>使用 <a href="http://code.google.com/p/android-apktool/">apktool</a> 对 Google 拼音输入法 Android 版进行反向工程[注1]，在 Dalvik JVM 汇编层级微调修改它，使其更适合日常使用。</p>
+
+<p>注1：实际上不是真正完整的反向工程，后来有大量借助 <a href="http://source.android.com/">Android Open Source Project</a> 中 Google 拼音输入法 1.0.0 的 Java 源代码理解反汇编得到的 smali 代码。</p>
+
+<h2>问题修正</h2>
+
+<ul>
+<li>中文模式下硬件键盘上某些标点符号没有被正确映射为中文（全角）形态，尤其是在 T-Mobile G2 上。</li>
+<li>中文模式下在软键盘未初始化时使用硬件键盘 Enter 键会导致 Google 拼音崩溃。</li>
+<li>中文模式下软键盘上的圆括号不是中文（全角）形态。</li>
+<li>软键盘上的 &amp; 和 &lt; 符号被不正确地转义成了 &amp;amp; 和 &amp;lt;。（MOD 版引入的问题。）</li>
+<li>中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）</li>
+</ul>
+
+
+<h2>细节改进</h2>
+
+<ul>
+<li>中文模式空闲和联想状态下 Alt + Del 像系统默认行为一样删除当前行。</li>
+<li>中文模式选字状态下 Alt + Del 删除所有拼音字符并回到空闲状态。</li>
+<li>中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）</li>
+<li>中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。</li>
+</ul>
+
+
+<h2>如何使用</h2>
+
+<p>下载 <a href="https://github.com/downloads/rainux/com.google.android.inputmethod.pinyin/Google_Pinyin_IME_v1.3.4_MOD_v3.apk">Google 拼音输入法 1.3.4 MOD v3</a>，使用 adb 工具或 Android 的 Package Manager 安装。或者 git clone 此 smali 源代码仓库自己用 apktool 编译生成 .apk 文件。</p>
+
+<p>注意：<strong>安装 MOD 版本之前必须先卸载官方版本，这是因为 MOD 版本签名所使用的证书不可能与官方版本一致。</strong></p>
+
+<h2>感谢</h2>
+
+<ul>
+<li>@<a href="http://twitter.com/pipitu">pipitu</a>: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[推荐一些 Ruby on Rails 学习资料]]></title>
+    <link href="http://rainux.github.io/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/"/>
+    <updated>2011-01-12T02:04:00+08:00</updated>
+    <id>http://rainux.github.io/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning</id>
+    <content type="html"><![CDATA[<h2>Ruby</h2>
+
+<p>开始之前应该看看 <a href="http://www.ruby-lang.org/">Ruby 官方网站</a> 上的 <a href="http://www.ruby-lang.org/en/about/">About Ruby</a>、<a href="http://www.ruby-lang.org/en/documentation/quickstart/">Ruby in Twenty Minutes</a> 和 <a href="http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby From Other Languages</a> 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。</p>
+
+<p>经验比较丰富的开发者可以通过 <a href="http://www.rubyist.net/~slagell/ruby/">Ruby User&rsquo;s Guide</a> [注1] 快速入门 Ruby，之后应该准备一本 <a href="http://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a> 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 <a href="http://ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby</a> 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，<a href="http://www.china-pub.com/195252">Ruby Programming: 向Ruby之父学程序设计</a> 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。</p>
+
+<h2>Rails</h2>
+
+<p>同样，有经验的开发者可以直接通过 <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> 入门 Rails。而 <a href="http://pragprog.com/titles/rails4/agile-web-development-with-rails">Agile Web Development with Rails</a> 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。</p>
+
+<h2>中文资料</h2>
+
+<p><a href="http://twitter.com/ihower">@ihower</a> 组织的 <a href="http://ruby.tw">Ruby Taiwan</a> 社区有提供 <a href="http://guides.ruby.tw/ruby/">Ruby User&rsquo;s Guide</a> 的繁体中文翻译以及 <a href="http://guides.ruby.tw/rails3/">Ruby on Rails Guides</a> 前两章的繁体中文翻译。<a href="http://twitter.com/ihower">@ihower</a> 自己编写的 <a href="http://ihower.tw/rails3/">Ruby on Rails 實戰手冊</a> 也是一部很不错的面向有一定经验开发者的在线书籍。</p>
+
+<h2>其它</h2>
+
+<p>Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 <a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a>。</p>
+
+<p>真正开始使用 Ruby on Rails 之后，<a href="http://www.railsapi.com/">Rails Searchable API Doc</a> 和 <a href="http://rdoc.info/">RubyDoc.info</a> 一定会是最常用的两个在线文档服务。</p>
+
+<p>注1: Ruby User&rsquo;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.9.3，<a href="http://www.ruby-lang.org/en/news/2011/10/06/plans-for-1-8-7/">1.8 系列已经进入其生命的最后阶段</a>。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 <a href="https://github.com/janlelis/irbtools">irbtools</a> 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。</p>
+]]></content>
+  </entry>
+  
+</feed>

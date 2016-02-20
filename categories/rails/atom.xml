@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | Reincarnation]]></title>
+  <link href="http://rainux.github.io/categories/rails/atom.xml" rel="self"/>
+  <link href="http://rainux.github.io/"/>
+  <updated>2016-02-21T07:28:51+08:00</updated>
+  <id>http://rainux.github.io/</id>
+  <author>
+    <name><![CDATA[Rainux Luo]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8]]></title>
+    <link href="http://rainux.github.io/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/"/>
+    <updated>2011-09-17T00:44:00+08:00</updated>
+    <id>http://rainux.github.io/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8</id>
+    <content type="html"><![CDATA[<h2>Use Xavier Shay&rsquo;s patched Ruby 1.9.3dev</h2>
+
+<p>There were <a href="http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html">two patches for Ruby 1.9</a> to resolve the load performance issue. Xavier Shay&rsquo;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.</p>
+
+<p>Use Xavier Shay&rsquo;s patch may not easy, here is a small trick to install his fork of Ruby with rvm:</p>
+
+<pre><code class="bash Shell commands">$ cd ~/.rvm/repos
+$ git clone git://github.com/xaviershay/ruby.git ruby-head
+$ rvm install ruby-head --branch require-performance-fix
+
+$ rvm use ruby-head
+$ ruby --version
+ruby 1.9.3dev (2011-05-31 trunk 31827) [x86_64-linux]
+</code></pre>
+
+<p>Yeah, it will be installed as <code>ruby-head</code>.</p>
+
+<p>Note: Absolutely this should only be used in development environment, since it&rsquo;s a development version of Ruby 1.9.3.</p>
+
+<h3>Updated on Sep 28, 2011:</h3>
+
+<p>The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay&rsquo;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.</p>
+
+<h2>Tweak Gemfile to not require unnecessary gems immediately</h2>
+
+<p>Most gems in <code>development</code> and <code>test</code> group are unnecessary to be required immediately, gems for test can be required in <code>spec_helper.rb</code>. Here is part of my Gemfile for a small project:</p>
+
+<pre><code class="ruby Gemfile">group :development do
+  gem 'bond', require: nil
+  gem 'irbtools', require: nil
+  gem 'irb_rocket', require: nil
+  gem 'capistrano', require: nil
+  gem 'rails3-generators', require: nil
+  # Only used for mo/po file generation in development, see rake -T gettext.
+  gem 'gettext', '&gt;= 1.9.3', require: nil
+end
+
+group :development, :test do
+  gem 'awesome_print', require: 'ap'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails', '&gt;= 2.5.0', require: nil
+  gem 'capybara', '&gt;= 0.3.6', require: nil
+  gem 'capybara-webkit', '&gt;= 1.0.0.beta4', require: nil
+  gem 'launchy', require: nil
+  gem 'cucumber-rails', require: nil
+end
+
+group :test do
+  gem 'spork', '&gt;= 0.9.0.rc5', require: nil
+  gem 'rspec', '&gt;= 2.5.0', require: nil
+  gem 'remarkable', '&gt;= 4.0.0.alpha4', require: nil
+  gem 'remarkable_activemodel', '&gt;= 4.0.0.alpha4', require: nil
+  gem 'remarkable_mongoid', require: nil
+  gem 'database_cleaner', '&gt;= 0.5.0', require: nil
+
+  gem 'guard', require: nil
+  gem 'guard-bundler', require: nil
+  gem 'guard-spork', require: nil
+  gem 'guard-rspec', require: nil
+  gem 'guard-cucumber', require: nil
+end
+
+group :linux do
+  gem 'rb-inotify', require: nil
+  gem 'libnotify', require: nil
+  gem 'therubyracer', require: nil
+end
+</code></pre>
+
+<h2>How about the result?</h2>
+
+<p>My recent project using Xavier Shay&rsquo;s Ruby 1.9.3dev:</p>
+
+<pre><code class="bash">$ time rake about
+/home/rainux/.rvm/gems/ruby-head/gems/activesupport-3.0.10/lib/active_support/dependencies.rb:239:in `block in require': iconv will be deprecated in the future, use String#encode instead.
+About your application's environment
+Ruby version              1.9.3 (x86_64-linux)
+RubyGems version          1.8.10
+Rack version              1.2
+Rails version             3.0.10
+Action Pack version       3.0.10
+Active Resource version   3.0.10
+Action Mailer version     3.0.10
+Active Support version    3.0.10
+Middleware                ActionDispatch::Static, Rack::Lock, ActiveSupport::Cache::Strategy::LocalCache, Rack::Runtime, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::RemoteIp, Rack::Sendfile, ActionDispatch::Callbacks, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::MethodOverride, ActionDispatch::Head, ActionDispatch::BestStandardsSupport, Warden::Manager, Sass::Plugin::Rack, Rack::Mongoid::Middleware::IdentityMap, Barista::Filter, Barista::Server::Proxy
+Application root          /home/rainux/devel/a_rails_app
+Environment               development
+rake about  5.15s user 0.35s system 99% cpu 5.501 total
+</code></pre>
+
+<p>Compare to another project using Ruby 1.8.7 (actually, ree-1.8.7-2011.03), without tweak Gemfile:</p>
+
+<pre><code class="bash">$ time rake about
+About your application's environment
+Ruby version              1.8.7 (x86_64-linux)
+RubyGems version          1.6.2
+Rack version              1.2
+Rails version             3.0.9
+Active Record version     3.0.9
+Action Pack version       3.0.9
+Active Resource version   3.0.9
+Action Mailer version     3.0.9
+Active Support version    3.0.9
+Application root          /home/rainux/devel/yet_another_rails_app
+Environment               development
+rake about  3.65s user 0.92s system 99% cpu 4.585 total
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX]]></title>
+    <link href="http://rainux.github.io/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/"/>
+    <updated>2011-07-23T20:09:00+08:00</updated>
+    <id>http://rainux.github.io/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax</id>
+    <content type="html"><![CDATA[<ul>
+<li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&rsquo;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
+</ul>
+
+
+<pre><code class="ruby Gemfile">gem 'capybara-webkit', '&gt;= 1.0.0.beta4'
+</code></pre>
+
+<ul>
+<li>Set Javascript driver to <code>:webkit</code> for Capybara in <code>spec_helper.rb</code>.</li>
+</ul>
+
+
+<pre><code class="ruby spec_helper.rb">Capybara.javascript_driver = :webkit
+</code></pre>
+
+<ul>
+<li><p>Configure RSpec use non-transactional fixtures, configure <a href="https://github.com/bmabey/database_cleaner">Database Cleaner</a> in <code>spec_helper.rb</code>.</p>
+
+<p>Notice with this setup, we&rsquo;ll only use truncation strategy when driver is not <code>:rack_test</code>. this will make normal specs run faster.</p></li>
+</ul>
+
+
+<pre><code class="ruby spec_helper.rb">config.use_transactional_fixtures = false
+
+config.before :each do
+  if Capybara.current_driver == :rack_test
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
+  else
+    DatabaseCleaner.strategy = :truncation
+  end
+end
+
+config.after :each do
+  DatabaseCleaner.clean
+end
+</code></pre>
+
+<ul>
+<li>Tag your scenarios in <code>spec/acceptance/*_spec.rb</code> to use Javascript driver if necessary.</li>
+</ul>
+
+
+<pre><code class="ruby some_spec.rb">scenario 'Create a lolita via AJAX', :js =&gt; true do
+end
+</code></pre>
+
+<ul>
+<li><p>Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.</p>
+
+<p>For example if you have a simple AJAX form, the <code>success</code> callback will simply redirect browser to another page via <code>location.href = '/yet_another_page';</code>. You can use the following code to wait for it done.</p></li>
+</ul>
+
+
+<pre><code class="ruby another_spec.rb">scenario 'Create a lolita via AJAX', :js =&gt; true do
+  visit new_lolita_path
+
+  click_on 'Submit'
+
+  wait_until { page.current_path == lolita_path(Lolita.last) }
+
+  # Your expections for the new page
+end
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[推荐一些 Ruby on Rails 学习资料]]></title>
+    <link href="http://rainux.github.io/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/"/>
+    <updated>2011-01-12T02:04:00+08:00</updated>
+    <id>http://rainux.github.io/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning</id>
+    <content type="html"><![CDATA[<h2>Ruby</h2>
+
+<p>开始之前应该看看 <a href="http://www.ruby-lang.org/">Ruby 官方网站</a> 上的 <a href="http://www.ruby-lang.org/en/about/">About Ruby</a>、<a href="http://www.ruby-lang.org/en/documentation/quickstart/">Ruby in Twenty Minutes</a> 和 <a href="http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby From Other Languages</a> 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。</p>
+
+<p>经验比较丰富的开发者可以通过 <a href="http://www.rubyist.net/~slagell/ruby/">Ruby User&rsquo;s Guide</a> [注1] 快速入门 Ruby，之后应该准备一本 <a href="http://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a> 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 <a href="http://ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby</a> 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，<a href="http://www.china-pub.com/195252">Ruby Programming: 向Ruby之父学程序设计</a> 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。</p>
+
+<h2>Rails</h2>
+
+<p>同样，有经验的开发者可以直接通过 <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> 入门 Rails。而 <a href="http://pragprog.com/titles/rails4/agile-web-development-with-rails">Agile Web Development with Rails</a> 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。</p>
+
+<h2>中文资料</h2>
+
+<p><a href="http://twitter.com/ihower">@ihower</a> 组织的 <a href="http://ruby.tw">Ruby Taiwan</a> 社区有提供 <a href="http://guides.ruby.tw/ruby/">Ruby User&rsquo;s Guide</a> 的繁体中文翻译以及 <a href="http://guides.ruby.tw/rails3/">Ruby on Rails Guides</a> 前两章的繁体中文翻译。<a href="http://twitter.com/ihower">@ihower</a> 自己编写的 <a href="http://ihower.tw/rails3/">Ruby on Rails 實戰手冊</a> 也是一部很不错的面向有一定经验开发者的在线书籍。</p>
+
+<h2>其它</h2>
+
+<p>Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 <a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a>。</p>
+
+<p>真正开始使用 Ruby on Rails 之后，<a href="http://www.railsapi.com/">Rails Searchable API Doc</a> 和 <a href="http://rdoc.info/">RubyDoc.info</a> 一定会是最常用的两个在线文档服务。</p>
+
+<p>注1: Ruby User&rsquo;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.9.3，<a href="http://www.ruby-lang.org/en/news/2011/10/06/plans-for-1-8-7/">1.8 系列已经进入其生命的最后阶段</a>。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 <a href="https://github.com/janlelis/irbtools">irbtools</a> 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。</p>
+]]></content>
+  </entry>
+  
+</feed>
