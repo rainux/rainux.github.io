@@ -9,7 +9,7 @@
   <meta name="author" content="Rainux Luo">
 
   
-  <meta name="description" content="Ruby 开始之前应该看看 Ruby 官方网站 上的 About Ruby、Ruby in Twenty Minutes 和 Ruby From Other Languages 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。 经验比较丰富的开发者可以通过 Ruby User& &hellip;">
+  <meta name="description" content="前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。 懒得另外写说明了，直接引用 GitHub repo 里的 README &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,7 +83,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/01/12/tutorials-and-references-for-ruby-on-rails-learning/">推荐一些 Ruby on Rails 学习资料</a></h1>
+      <h1 class="entry-title"><a href="/2011/02/03/google-pinyin-ime-for-android-mod-v3/">Google 拼音输入法 Android 版 MOD v3</a></h1>
     
     
       <p class="meta">
@@ -92,34 +92,56 @@
 
 
 
-<time class='entry-date' datetime='2011-01-12T02:04:00+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>2:04 am</span></time>
+<time class='entry-date' datetime='2011-02-03T14:44:00+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2011</span></span> <span class='time'>2:44 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Ruby</h2>
+  <div class="entry-content"><p>前段时间入手 T-Mobile G2 之后把 Google 拼音输入法升级到了在 G1 上跑起来慢吞吞的最新版，结果遇到各种小问题用得很不爽，一怒之下抄起家伙把它狠狠改了一通。虽然还有些小问题，但影响没那么严重就暂时懒得管了。</p>
 
-<p>开始之前应该看看 <a href="http://www.ruby-lang.org/">Ruby 官方网站</a> 上的 <a href="http://www.ruby-lang.org/en/about/">About Ruby</a>、<a href="http://www.ruby-lang.org/en/documentation/quickstart/">Ruby in Twenty Minutes</a> 和 <a href="http://www.ruby-lang.org/en/documentation/ruby-from-other-languages/">Ruby From Other Languages</a> 得到初步的印象和感性认识。在页面底部可以选择语言查看中文版。</p>
+<p>懒得另外写说明了，直接引用 <a href="https://github.com/rainux/com.google.android.inputmethod.pinyin">GitHub repo</a> 里的 README 吧。</p>
 
-<p>经验比较丰富的开发者可以通过 <a href="http://www.rubyist.net/~slagell/ruby/">Ruby User&rsquo;s Guide</a> [注1] 快速入门 Ruby，之后应该准备一本 <a href="http://books.google.com/books?id=jcUbTcr5XWwC">The Ruby Programming Language</a> 作为日常参考。因为作为 Ruby 语言创始人松本行弘参与编写的书籍，它对 Ruby 语言的介绍最完整。而世界上第一本介绍 Ruby 语言的英文书籍 <a href="http://ruby-doc.org/docs/ProgrammingRuby/">Programming Ruby</a> 大概是最多人用于入门 Ruby 的书籍，虽然对于有经验的开发者来说它稍显啰嗦。Programming Ruby 第一版有提供免费的在线版本。如果你还没有任何程序设计经验，<a href="http://www.china-pub.com/195252">Ruby Programming: 向Ruby之父学程序设计</a> 应该是不错的选择，作者高桥征义是日本 Ruby 协会会长。</p>
+<h2>目的</h2>
 
-<h2>Rails</h2>
+<p>使用 <a href="http://code.google.com/p/android-apktool/">apktool</a> 对 Google 拼音输入法 Android 版进行反向工程[注1]，在 Dalvik JVM 汇编层级微调修改它，使其更适合日常使用。</p>
 
-<p>同样，有经验的开发者可以直接通过 <a href="http://guides.rubyonrails.org/">Ruby on Rails Guides</a> 入门 Rails。而 <a href="http://pragprog.com/titles/rails4/agile-web-development-with-rails">Agile Web Development with Rails</a> 则大概是最多人用于入门 Rails 的书籍，它的第四版已经使用目前最新的 Rails 3。</p>
+<p>注1：实际上不是真正完整的反向工程，后来有大量借助 <a href="http://source.android.com/">Android Open Source Project</a> 中 Google 拼音输入法 1.0.0 的 Java 源代码理解反汇编得到的 smali 代码。</p>
 
-<h2>中文资料</h2>
+<h2>问题修正</h2>
 
-<p><a href="http://twitter.com/ihower">@ihower</a> 组织的 <a href="http://ruby.tw">Ruby Taiwan</a> 社区有提供 <a href="http://guides.ruby.tw/ruby/">Ruby User&rsquo;s Guide</a> 的繁体中文翻译以及 <a href="http://guides.ruby.tw/rails3/">Ruby on Rails Guides</a> 前两章的繁体中文翻译。<a href="http://twitter.com/ihower">@ihower</a> 自己编写的 <a href="http://ihower.tw/rails3/">Ruby on Rails 實戰手冊</a> 也是一部很不错的面向有一定经验开发者的在线书籍。</p>
+<ul>
+<li>中文模式下硬件键盘上某些标点符号没有被正确映射为中文（全角）形态，尤其是在 T-Mobile G2 上。</li>
+<li>中文模式下在软键盘未初始化时使用硬件键盘 Enter 键会导致 Google 拼音崩溃。</li>
+<li>中文模式下软键盘上的圆括号不是中文（全角）形态。</li>
+<li>软键盘上的 &amp; 和 &lt; 符号被不正确地转义成了 &amp;amp; 和 &amp;lt;。（MOD 版引入的问题。）</li>
+<li>中文模式下软键盘在空闲状态时 Del 不能删除字符。（MOD 版引入的问题。）</li>
+</ul>
 
-<h2>其它</h2>
 
-<p>Ruby on Rails 社区非常注重代码的美观及可读性。使用相同的 coding style 是保证代码美观可读的有效措施之一，所以在自己尝试写代码时应该看看 <a href="https://github.com/bbatsov/ruby-style-guide">Ruby Style Guide</a>。</p>
+<h2>细节改进</h2>
 
-<p>真正开始使用 Ruby on Rails 之后，<a href="http://www.railsapi.com/">Rails Searchable API Doc</a> 和 <a href="http://rdoc.info/">RubyDoc.info</a> 一定会是最常用的两个在线文档服务。</p>
+<ul>
+<li>中文模式空闲和联想状态下 Alt + Del 像系统默认行为一样删除当前行。</li>
+<li>中文模式选字状态下 Alt + Del 删除所有拼音字符并回到空闲状态。</li>
+<li>中文模式下回到空闲状态以及空闲状态输入字符后重置 Alt 和 Shift 状态，避免使用 Del 修正输入内容时误删当前行。（MOD 版引入的不便。）</li>
+<li>中文模式下硬件键盘 _ （下划线）映射为—（半个破折号），`（反单引号）映射为·（英文人名分隔符）。</li>
+</ul>
 
-<p>注1: Ruby User&rsquo;s Guide 写于 Ruby 1.8.3 时代，现在建议使用的 Ruby 版本是 1.9.3，<a href="http://www.ruby-lang.org/en/news/2011/10/06/plans-for-1-8-7/">1.8 系列已经进入其生命的最后阶段</a>。文中提到的 eval.rb 应该使用 irb 取代，另外可以使用 <a href="https://github.com/janlelis/irbtools">irbtools</a> 大幅度增强 irb。Ruby Taiwan 的繁体中文翻译版本对类似问题有提供译注，建议参考。</p>
+
+<h2>如何使用</h2>
+
+<p>下载 <a href="https://github.com/downloads/rainux/com.google.android.inputmethod.pinyin/Google_Pinyin_IME_v1.3.4_MOD_v3.apk">Google 拼音输入法 1.3.4 MOD v3</a>，使用 adb 工具或 Android 的 Package Manager 安装。或者 git clone 此 smali 源代码仓库自己用 apktool 编译生成 .apk 文件。</p>
+
+<p>注意：<strong>安装 MOD 版本之前必须先卸载官方版本，这是因为 MOD 版本签名所使用的证书不可能与官方版本一致。</strong></p>
+
+<h2>感谢</h2>
+
+<ul>
+<li>@<a href="http://twitter.com/pipitu">pipitu</a>: 在我头昏眼花犯下低级错误的时候帮我查阅 smali 资料，让我得以“拨云见日醍醐灌顶茅塞顿开遍体舒畅的神一般的展开”。</li>
+</ul>
+
 </div>
   
   
@@ -128,6 +150,8 @@
     </article>
   
   <div class="pagination">
+    
+      <a class="prev" href="/posts/7">&larr; Older</a>
     
     <a href="/archives">Archives</a>
     
@@ -140,6 +164,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/2016/02/27/pinterest-with-qiniu-and-rails-in-15-minutes/">"Pinterest" with Qiniu and Rails in 15 minutes</a>
+      </li>
     
       <li class="post">
         <a href="/2014/05/24/from-platinum-to-master-starcraft-ii-nvn-advanced-guide/">从白金到大师——星际争霸II群殴进阶指南</a>
@@ -155,10 +183,6 @@
     
       <li class="post">
         <a href="/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/">Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/02/03/google-pinyin-ime-for-android-mod-v3/">Google 拼音输入法 Android 版 MOD v3</a>
       </li>
     
   </ul>

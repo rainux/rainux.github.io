@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://rainux.github.io/2016/02/27/pinterest-with-qiniu-and-rails-in-15-minutes/</loc>
+<lastmod>2016-02-27T19:42:42+08:00</lastmod>
+</url>
+<url>
 <loc>http://rainux.github.io/2014/05/24/from-platinum-to-master-starcraft-ii-nvn-advanced-guide/</loc>
 <lastmod>2014-05-24T01:53:00+08:00</lastmod>
 </url>
@@ -62,5 +66,26 @@
 </url>
 <url>
 <loc>http://rainux.github.io/categories/starcraft-ii/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/categories/qiniu-in-15-minutes/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/posts/2/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/posts/3/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/posts/4/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/posts/5/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/posts/6/</loc>
+</url>
+<url>
+<loc>http://rainux.github.io/posts/7/</loc>
 </url>
 </urlset>

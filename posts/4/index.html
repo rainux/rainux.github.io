@@ -9,7 +9,7 @@
   <meta name="author" content="Rainux Luo">
 
   
-  <meta name="description" content="Add capybara-webkit to your Gemfile and let Guard::Bundler install it automatically (or manually via bundle install if you don&rsquo;t use Guard). &hellip;">
+  <meta name="description" content="Use Xavier Shay&rsquo;s patched Ruby 1.9.3dev There were two patches for Ruby 1.9 to resolve the load performance issue. Xavier Shay&rsquo;s approach &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -83,7 +83,7 @@
       
   <header>
     
-      <h1 class="entry-title"><a href="/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/">Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</a></h1>
+      <h1 class="entry-title"><a href="/2011/09/17/load-rails-environment-with-ruby-1.9-nearly-as-fast-as-ruby-1.8/">Load Rails Environment with Ruby 1.9 Nearly as Fast as Ruby 1.8</a></h1>
     
     
       <p class="meta">
@@ -92,41 +92,49 @@
 
 
 
-<time class='entry-date' datetime='2011-07-23T20:09:00+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2011</span></span> <span class='time'>8:09 pm</span></time>
+<time class='entry-date' datetime='2011-09-17T00:44:00+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2011</span></span> <span class='time'>12:44 am</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><ul>
-<li>Add <code>capybara-webkit</code> to your <code>Gemfile</code> and let <a href="https://github.com/guard/guard-bundler">Guard::Bundler</a> install it automatically (or manually via <code>bundle install</code> if you don&rsquo;t use <a href="https://github.com/guard/guard">Guard</a>).</li>
-</ul>
+  <div class="entry-content"><h2>Use Xavier Shay&rsquo;s patched Ruby 1.9.3dev</h2>
 
+<p>There were <a href="http://www.rubyinside.com/ruby-1-9-3-faster-loading-times-require-4927.html">two patches for Ruby 1.9</a> to resolve the load performance issue. Xavier Shay&rsquo;s approach, which use a hash data structure to store loaded files, absolutely can result much better performance.</p>
+
+<p>Use Xavier Shay&rsquo;s patch may not easy, here is a small trick to install his fork of Ruby with rvm:</p>
+
+<figure class='code'><figcaption><span>Shell commands</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">cd</span> ~/.rvm/repos
+</span><span class='line'><span class="nv">$ </span>git clone git://github.com/xaviershay/ruby.git ruby-head
+</span><span class='line'><span class="nv">$ </span>rvm install ruby-head --branch require-performance-fix
+</span><span class='line'>
+</span><span class='line'><span class="nv">$ </span>rvm use ruby-head
+</span><span class='line'><span class="nv">$ </span>ruby --version
+</span><span class='line'>ruby 1.9.3dev <span class="o">(</span>2011-05-31 trunk 31827<span class="o">)</span> <span class="o">[</span>x86_64-linux<span class="o">]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Yeah, it will be installed as <code>ruby-head</code>.</p>
+
+<p>Note: Absolutely this should only be used in development environment, since it&rsquo;s a development version of Ruby 1.9.3.</p>
+
+<h3>Updated on Sep 28, 2011:</h3>
+
+<p>The official Ruby 1.9.3 rc1 was released recently, it has almost same load performance compared to Xavier Shay&rsquo;s patched Ruby 1.9.3dev. Which make this trick no longer necessary.</p>
+
+<h2>Tweak Gemfile to not require unnecessary gems immediately</h2>
+
+<p>Most gems in <code>development</code> and <code>test</code> group are unnecessary to be required immediately, gems for test can be required in <code>spec_helper.rb</code>. Here is part of my Gemfile for a small project:</p>
 
 <figure class='code'><figcaption><span>Gemfile</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Set Javascript driver to <code>:webkit</code> for Capybara in <code>spec_helper.rb</code>.</li>
-</ul>
-
-
-<figure class='code'><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Capybara</span><span class="o">.</span><span class="n">javascript_driver</span> <span class="o">=</span> <span class="ss">:webkit</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p>Configure RSpec use non-transactional fixtures, configure <a href="https://github.com/bmabey/database_cleaner">Database Cleaner</a> in <code>spec_helper.rb</code>.</p>
-
-<p>Notice with this setup, we&rsquo;ll only use truncation strategy when driver is not <code>:rack_test</code>. this will make normal specs run faster.</p></li>
-</ul>
-
-
-<figure class='code'><figcaption><span>spec_helper.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -140,43 +148,80 @@
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">use_transactional_fixtures</span> <span class="o">=</span> <span class="kp">false</span>
-</span><span class='line'>
-</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">before</span> <span class="ss">:each</span> <span class="k">do</span>
-</span><span class='line'>  <span class="k">if</span> <span class="no">Capybara</span><span class="o">.</span><span class="n">current_driver</span> <span class="o">==</span> <span class="ss">:rack_test</span>
-</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:transaction</span>
-</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">start</span>
-</span><span class='line'>  <span class="k">else</span>
-</span><span class='line'>    <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">strategy</span> <span class="o">=</span> <span class="ss">:truncation</span>
-</span><span class='line'>  <span class="k">end</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">group</span> <span class="ss">:development</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;bond&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;irbtools&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;irb_rocket&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capistrano&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rails3-generators&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="c1"># Only used for mo/po file generation in development, see rake -T gettext.</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;gettext&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.9.3&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
 </span><span class='line'><span class="k">end</span>
 </span><span class='line'>
-</span><span class='line'><span class="n">config</span><span class="o">.</span><span class="n">after</span> <span class="ss">:each</span> <span class="k">do</span>
-</span><span class='line'>  <span class="no">DatabaseCleaner</span><span class="o">.</span><span class="n">clean</span>
+</span><span class='line'><span class="n">group</span> <span class="ss">:development</span><span class="p">,</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;awesome_print&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="s1">&#39;ap&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;factory_girl_rails&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec-rails&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capybara&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.3.6&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;capybara-webkit&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 1.0.0.beta4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;launchy&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;cucumber-rails&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;spork&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.9.0.rc5&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 2.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 4.0.0.alpha4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable_activemodel&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 4.0.0.alpha4&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;remarkable_mongoid&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;database_cleaner&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;= 0.5.0&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-bundler&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-spork&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-rspec&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;guard-cucumber&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:linux</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rb-inotify&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;libnotify&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;therubyracer&#39;</span><span class="p">,</span> <span class="nb">require</span><span class="p">:</span> <span class="kp">nil</span>
 </span><span class='line'><span class="k">end</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>Tag your scenarios in <code>spec/acceptance/*_spec.rb</code> to use Javascript driver if necessary.</li>
-</ul>
+<h2>How about the result?</h2>
 
+<p>My recent project using Xavier Shay&rsquo;s Ruby 1.9.3dev:</p>
 
-<figure class='code'><figcaption><span>some_spec.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><p>Wait for any AJAX call to be completed in your specs. This is very important, or you will get many strange issues like no database record found, AJAX call get empty response with 0 status code, etc.</p>
-
-<p>For example if you have a simple AJAX form, the <code>success</code> callback will simply redirect browser to another page via <code>location.href = '/yet_another_page';</code>. You can use the following code to wait for it done.</p></li>
-</ul>
-
-
-<figure class='code'><figcaption><span>another_spec.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -185,15 +230,60 @@
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">scenario</span> <span class="s1">&#39;Create a lolita via AJAX&#39;</span><span class="p">,</span> <span class="ss">:js</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="k">do</span>
-</span><span class='line'>  <span class="n">visit</span> <span class="n">new_lolita_path</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">click_on</span> <span class="s1">&#39;Submit&#39;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">wait_until</span> <span class="p">{</span> <span class="n">page</span><span class="o">.</span><span class="n">current_path</span> <span class="o">==</span> <span class="n">lolita_path</span><span class="p">(</span><span class="no">Lolita</span><span class="o">.</span><span class="n">last</span><span class="p">)</span> <span class="p">}</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c1"># Your expections for the new page</span>
-</span><span class='line'><span class="k">end</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">time </span>rake about
+</span><span class='line'>/home/rainux/.rvm/gems/ruby-head/gems/activesupport-3.0.10/lib/active_support/dependencies.rb:239:in <span class="sb">`</span>block in require<span class="s1">&#39;: iconv will be deprecated in the future, use String#encode instead.</span>
+</span><span class='line'><span class="s1">About your application&#39;</span>s environment
+</span><span class='line'>Ruby version              1.9.3 <span class="o">(</span>x86_64-linux<span class="o">)</span>
+</span><span class='line'>RubyGems version          1.8.10
+</span><span class='line'>Rack version              1.2
+</span><span class='line'>Rails version             3.0.10
+</span><span class='line'>Action Pack version       3.0.10
+</span><span class='line'>Active Resource version   3.0.10
+</span><span class='line'>Action Mailer version     3.0.10
+</span><span class='line'>Active Support version    3.0.10
+</span><span class='line'>Middleware                ActionDispatch::Static, Rack::Lock, ActiveSupport::Cache::Strategy::LocalCache, Rack::Runtime, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::RemoteIp, Rack::Sendfile, ActionDispatch::Callbacks, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::MethodOverride, ActionDispatch::Head, ActionDispatch::BestStandardsSupport, Warden::Manager, Sass::Plugin::Rack, Rack::Mongoid::Middleware::IdentityMap, Barista::Filter, Barista::Server::Proxy
+</span><span class='line'>Application root          /home/rainux/devel/a_rails_app
+</span><span class='line'>Environment               development
+</span><span class='line'>rake about  5.15s user 0.35s system 99% cpu 5.501 total
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Compare to another project using Ruby 1.8.7 (actually, ree-1.8.7-2011.03), without tweak Gemfile:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span><span class="nb">time </span>rake about
+</span><span class='line'>About your application<span class="err">&#39;</span>s environment
+</span><span class='line'>Ruby version              1.8.7 <span class="o">(</span>x86_64-linux<span class="o">)</span>
+</span><span class='line'>RubyGems version          1.6.2
+</span><span class='line'>Rack version              1.2
+</span><span class='line'>Rails version             3.0.9
+</span><span class='line'>Active Record version     3.0.9
+</span><span class='line'>Action Pack version       3.0.9
+</span><span class='line'>Active Resource version   3.0.9
+</span><span class='line'>Action Mailer version     3.0.9
+</span><span class='line'>Active Support version    3.0.9
+</span><span class='line'>Application root          /home/rainux/devel/yet_another_rails_app
+</span><span class='line'>Environment               development
+</span><span class='line'>rake about  3.65s user 0.92s system 99% cpu 4.585 total
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
@@ -220,6 +310,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2016/02/27/pinterest-with-qiniu-and-rails-in-15-minutes/">"Pinterest" with Qiniu and Rails in 15 minutes</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014/05/24/from-platinum-to-master-starcraft-ii-nvn-advanced-guide/">从白金到大师——星际争霸II群殴进阶指南</a>
       </li>
     
@@ -233,10 +327,6 @@
     
       <li class="post">
         <a href="/2011/07/23/configure-capybara-webkit-to-run-acceptance-specs-with-javascript-ajax/">Configure capybara-webkit to Run Acceptance Specs With Javascript/AJAX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/2011/02/03/google-pinyin-ime-for-android-mod-v3/">Google 拼音输入法 Android 版 MOD v3</a>
       </li>
     
   </ul>
